@@ -24,4 +24,17 @@ public class UserService {
         }
         return password;
     }
+
+    private String getEmailFromUser() {
+        String email;
+        while (true) {
+            System.out.println("Please enter your email:");
+            email = sc.nextLine();
+            if(Validation.isValidEmail(email))
+                break;
+            else
+                System.out.println("plz enter a valid email");
+        }
+        return email;
+    }
 }

@@ -1,8 +1,10 @@
 package service;
 
+import feilds.Users;
 import repository.UserRepository;
 import utility.Validation;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class UserService {
@@ -36,5 +38,15 @@ public class UserService {
                 System.out.println("plz enter a valid email");
         }
         return email;
+    }
+    public void saveUser() throws SQLException {
+        System.out.println("plz enter your full name");
+        String fullName = sc.nextLine();
+        System.out.println("plz enter your username");
+        String username = sc.nextLine();
+        String email = getEmailFromUser();
+        String password = getPasswordFromUser();
+        Users user = new Users(fullName,username,email,password);
+        userRepository.save(user);
     }
 }

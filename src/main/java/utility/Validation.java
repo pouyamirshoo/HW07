@@ -14,12 +14,12 @@ public class Validation {
         USER_PASSWORD = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@#!%&*])[A-Za-z0-9@#!%&*]{8,10}$");
     }
 
-    public boolean isValidEmail(String email) {
+    public static boolean isValidEmail(String email) {
         Matcher matcher = USER_EMAIL.matcher(email);
         return matcher.find();
     }
 
-    public boolean isValidPassword(String password) {
+    public static boolean isValidPassword(String password) {
         Matcher matcher = USER_PASSWORD.matcher(password);
         return matcher.find();
     }

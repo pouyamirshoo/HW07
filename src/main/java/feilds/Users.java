@@ -38,6 +38,26 @@ public class Users {
         UserPassword = userPassword;
     }
 
+    public int getUserId() {
+        return UserId;
+    }
+
+    public String getUserFullName() {
+        return UserFullName;
+    }
+
+    public String getUserName() {
+        return UserName;
+    }
+
+    public String getUserEmail() {
+        return UserEmail;
+    }
+
+    public String getUserPassword() {
+        return UserPassword;
+    }
+
     @Override
     public String toString() {
         return "Users{" +

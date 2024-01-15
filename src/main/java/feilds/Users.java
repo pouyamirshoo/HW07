@@ -18,6 +18,13 @@ public class Users {
         UserPassword = userPassword;
     }
 
+    public Users(String userFullName, String userName, String userEmail, String userPassword) {
+        UserFullName = userFullName;
+        UserName = userName;
+        UserEmail = userEmail;
+        UserPassword = userPassword;
+    }
+
     public void setUserId(int userId) {
         UserId = userId;
     }

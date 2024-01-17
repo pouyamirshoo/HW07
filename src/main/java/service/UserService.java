@@ -18,6 +18,7 @@ public class UserService {
         String password;
         while (true) {
             System.out.println("Please enter your password:");
+            System.out.println("Hint: it has to be between 8 to 10 and must contain at least 1 lower and upper case and 1 digit and 1 char ");
             password = sc.nextLine();
             if(Validation.isValidPassword(password))
                 break;

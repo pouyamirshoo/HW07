@@ -52,6 +52,7 @@ public class BrandRepository {
             String brandDescription = resultSet.getString("brand_description");
             Brands brand = new Brands(id, brandName1, brandWebsite, brandDescription);
             brands [i] = brand;
+            i++;
         }
         return brands;
     }

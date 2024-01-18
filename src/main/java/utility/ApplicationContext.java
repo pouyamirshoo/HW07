@@ -14,7 +14,7 @@ public class ApplicationContext {
     private static final UserService USER_SERVICE;
     private static final BrandRepository BRAND_REPOSITORY;
     private static final BrandService BRAND_SERVICE;
-    private static final Menu MENU;
+    private static  Menu MENU;
 
     static {
         CONNECTION = JdbcConnection.getConnection();
@@ -23,6 +23,7 @@ public class ApplicationContext {
         BRAND_REPOSITORY = new BrandRepository(CONNECTION);
         BRAND_SERVICE = new BrandService(BRAND_REPOSITORY);
         MENU = new Menu(USER_SERVICE);
+        MENU = new Menu(BRAND_SERVICE);
     }
     public static Menu getMenu(){
         return MENU;

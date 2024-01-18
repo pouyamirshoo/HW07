@@ -1,10 +1,10 @@
 package feilds;
 
 public class Brands {
-    int brandId;
-    String brandName;
-    String website;
-    String description;
+    private int brandId;
+    private String brandName;
+    private String website;
+    private String description;
 
     public Brands() {
     }

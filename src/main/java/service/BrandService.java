@@ -50,7 +50,9 @@ public class BrandService {
         Brands brand = brandRepository.load(brandName);
         if(brand == null)
             System.out.println("wrong brand name or make a brand first");
-        else
+        else {
             System.out.println("welcome");
+            System.out.println(brand.toString());
+        }
     }
 }

@@ -43,10 +43,11 @@ public class CategoryRepository {
     }
     public int numOfLoadAll() throws SQLException {
 
+        int num = 0;
         String numOfLoadAllCategories = "SELECT * FROM category ";
         PreparedStatement preparedStatement = connection.prepareStatement(numOfLoadAllCategories);
         ResultSet resultSet = preparedStatement.executeQuery();
-        int num = 0;
+
         while (resultSet.next()) {
             num++;
         }
@@ -67,6 +68,7 @@ public class CategoryRepository {
             String categoryDescription = resultSet.getString("category_description");
             Category category = new Category(id, categoryName1, categoryDescription);
             categories [i] = category;
+            i++;
         }
         return categories;
     }

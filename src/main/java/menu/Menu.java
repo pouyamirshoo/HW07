@@ -15,8 +15,8 @@ public class Menu {
 
     public void publicMenu() throws SQLException {
         System.out.println("***** WELCOME *****");
-        System.out.println("1-SIGN UP");
-        System.out.println("2-log IN");
+        System.out.println("1-SIGN IN");
+        System.out.println("2-LOG IN");
         System.out.println("3-EXIT");
         System.out.println("Choose your number:");
 

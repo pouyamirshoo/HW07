@@ -1,5 +1,6 @@
 package utility;
 
+import java.net.URL;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -22,5 +23,14 @@ public class Validation {
     public static boolean isValidPassword(String password) {
         Matcher matcher = USER_PASSWORD.matcher(password);
         return matcher.find();
+    }
+    public static boolean isValidWebsite(String url){
+        try {
+            new URL(url).toURI();
+            return true;
+        }
+        catch (Exception e) {
+            return false;
+        }
     }
 }

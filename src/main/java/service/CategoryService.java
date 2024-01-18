@@ -30,5 +30,16 @@ public class CategoryService {
         else
             System.out.println("this category already made");
     }
+    public void loadCategory() throws SQLException {
+        System.out.println("plz enter your category name");
+        String categoryName = sc.nextLine();
 
+        Category category = categoryRepository.load(categoryName);
+        if(category == null)
+            System.out.println("wrong brand name or make a brand first");
+        else {
+            System.out.println("welcome");
+            System.out.println(category.toString());
+        }
+    }
 }

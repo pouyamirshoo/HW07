@@ -16,7 +16,7 @@ public class Menu {
     public void publicMenu() throws SQLException {
         System.out.println("***** WELCOME *****");
         System.out.println("1-SIGN UP");
-        System.out.println("2-SIGN IN");
+        System.out.println("2-log IN");
         System.out.println("3-EXIT");
         System.out.println("Choose your number:");
 
@@ -24,14 +24,17 @@ public class Menu {
         sc.nextLine();
 
         switch (number) {
-            case 1 -> signUp();
-            case 2 -> System.out.println("hi");
+            case 1 -> signIn();
+            case 2 -> logIn();
             case 3 -> System.out.println("exit");
         }
     }
 
-    public void signUp() throws SQLException {
+    public void signIn() throws SQLException {
         userService.saveUser();
+    }
+    public void logIn() throws SQLException {
+        userService.loadUser();
     }
 
 }

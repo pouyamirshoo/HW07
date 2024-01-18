@@ -12,3 +12,9 @@ CREATE TABLE IF NOT EXISTS brand(
     brand_website VARCHAR(255),
     brand_description VARCHAR(255)
 );
+
+CREATE TABLE IF NOT EXISTS category(
+    category_id SERIAL PRIMARY KEY ,
+    category_name VARCHAR(255) UNIQUE NOT NULL ,
+    category_description VARCHAR(255)
+);

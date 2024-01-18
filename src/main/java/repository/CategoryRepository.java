@@ -2,6 +2,7 @@ package repository;
 
 ;
 
+import feilds.Brands;
 import feilds.Category;
 
 import java.sql.Connection;
@@ -39,5 +40,34 @@ public class CategoryRepository {
             return category;
         } else
             return null;
+    }
+    public int numOfLoadAll() throws SQLException {
+
+        String numOfLoadAllCategories = "SELECT * FROM category ";
+        PreparedStatement preparedStatement = connection.prepareStatement(numOfLoadAllCategories);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        int num = 0;
+        while (resultSet.next()) {
+            num++;
+        }
+        return num;
+    }
+
+    public Category[] loadAll() throws SQLException {
+
+        Category [] categories = new Category[numOfLoadAll()];
+        int i = 0;
+
+        String loadAllCategories = "SELECT * FROM category ";
+        PreparedStatement preparedStatement = connection.prepareStatement(loadAllCategories);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            int id = resultSet.getInt("category_id");
+            String categoryName1 = resultSet.getString("category_name");
+            String categoryDescription = resultSet.getString("category_description");
+            Category category = new Category(id, categoryName1, categoryDescription);
+            categories [i] = category;
+        }
+        return categories;
     }
 }

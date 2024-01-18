@@ -1,8 +1,11 @@
 package service;
 
+
+import feilds.Brands;
 import repository.BrandRepository;
 import utility.Validation;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class BrandService {
@@ -24,5 +27,20 @@ public class BrandService {
     }
         return website;
 }
+    public void saveBrand() throws SQLException {
+        System.out.println("plz enter your brand name");
+        String brandName = sc.nextLine();
+        String website = getWebsiteFromUser();
+        System.out.println("plz enter your description");
+        String description = sc.nextLine();
+
+        Brands brand = new Brands(brandName,website,description);
+        int signIn =  brandRepository.save(brand);
+        if(signIn == 1){
+            System.out.println("thank you for make a brand");
+        }
+        else
+            System.out.println("this brand already made");
+    }
 
 }

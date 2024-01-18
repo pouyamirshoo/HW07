@@ -1,6 +1,7 @@
 package service;
 
 
+import feilds.Brands;
 import feilds.Category;
 import repository.CategoryRepository;
 import utility.Validation;
@@ -41,5 +42,9 @@ public class CategoryService {
             System.out.println("welcome");
             System.out.println(category.toString());
         }
+    }
+    public void loadAllCategories() throws SQLException {
+        Category[]categories = categoryRepository.loadAll();
+        System.out.println(categories.toString());
     }
 }

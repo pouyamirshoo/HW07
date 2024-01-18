@@ -48,6 +48,11 @@ public class UserService {
         String email = getEmailFromUser();
         String password = getPasswordFromUser();
         Users user = new Users(fullName,username,email,password);
-        userRepository.save(user);
+       int signIn =  userRepository.save(user);
+        if(signIn == 1){
+            System.out.println("thank you for sign in");
+        }
+        else
+            System.out.println("you already sign in");
     }
 }

@@ -55,4 +55,18 @@ public class UserService {
         else
             System.out.println("you already sign in");
     }
+    public void loadUser() throws SQLException {
+        System.out.println("plz enter your user name");
+        String username = sc.nextLine();
+        System.out.println("plz enter your password");
+        String password = sc.nextLine();
+
+        Users user = userRepository.load(username);
+        if(user == null)
+            System.out.println("wrong username or sign in first");
+        else if (!user.getUserPassword().equals(password))
+            System.out.println("wrong password");
+        else
+            System.out.println("welcome");
+    }
 }

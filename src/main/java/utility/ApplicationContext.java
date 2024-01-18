@@ -3,6 +3,7 @@ import java.sql.Connection;
 import Connection.JdbcConnection;
 import menu.Menu;
 import repository.BrandRepository;
+import repository.CategoryRepository;
 import repository.UserRepository;
 import service.BrandService;
 import service.UserService;
@@ -14,6 +15,7 @@ public class ApplicationContext {
     private static final UserService USER_SERVICE;
     private static final BrandRepository BRAND_REPOSITORY;
     private static final BrandService BRAND_SERVICE;
+    private static final CategoryRepository CATEGORY_REPOSITORY;
     private static  Menu MENU;
 
     static {
@@ -22,6 +24,7 @@ public class ApplicationContext {
         USER_SERVICE = new UserService(USER_REPOSITORY);
         BRAND_REPOSITORY = new BrandRepository(CONNECTION);
         BRAND_SERVICE = new BrandService(BRAND_REPOSITORY);
+        CATEGORY_REPOSITORY = new CategoryRepository(CONNECTION);
         MENU = new Menu(USER_SERVICE);
         MENU = new Menu(BRAND_SERVICE);
     }

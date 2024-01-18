@@ -66,7 +66,9 @@ public class UserService {
             System.out.println("wrong username or sign in first");
         else if (!user.getUserPassword().equals(password))
             System.out.println("wrong password");
-        else
+        else {
             System.out.println("welcome");
+            System.out.println(user.toString());
+        }
     }
 }

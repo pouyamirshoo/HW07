@@ -5,3 +5,10 @@ CREATE TABLE IF NOT EXISTS users(
     email VARCHAR(255) UNIQUE NOT NULL ,
     user_password VARCHAR(255)
 );
+
+CREATE TABLE IF NOT EXISTS brand(
+    brand_id SERIAL PRIMARY KEY ,
+    brand_name VARCHAR(255),
+    brand_website VARCHAR(255),
+    brand_description VARCHAR(255)
+);

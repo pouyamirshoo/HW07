@@ -2,6 +2,7 @@ package service;
 
 
 import feilds.Brands;
+import feilds.Users;
 import repository.BrandRepository;
 import utility.Validation;
 
@@ -42,5 +43,14 @@ public class BrandService {
         else
             System.out.println("this brand already made");
     }
+    public void loadBrand() throws SQLException {
+        System.out.println("plz enter your brand name");
+        String brandName = sc.nextLine();
 
+        Brands brand = brandRepository.load(brandName);
+        if(brand == null)
+            System.out.println("wrong brand name or make a brand first");
+        else
+            System.out.println("welcome");
+    }
 }

@@ -57,4 +57,40 @@ public class ProductRepository {
         else
             return null;
     }
+    public int numOfAllProducts() throws SQLException {
+
+        int numOfAllProducts = 0;
+        String SQL = "SELECT * FROM product";
+        PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        while (resultSet.next()){
+            numOfAllProducts ++;
+        }
+        return numOfAllProducts;
+    }
+    public Products[] allProducts() throws SQLException {
+
+        Products [] products = new Products[numOfAllProducts()];
+        int i = 0;
+
+        String allProducts = "SELECT * FROM product";
+        PreparedStatement preparedStatement = connection.prepareStatement(allProducts);
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        while (resultSet.next()){
+            int id = resultSet.getInt("product_id");
+            String productName1 = resultSet.getString("product_name");
+            String product_creat_date = resultSet.getString("product_creat_date");
+            int category_id_fk = resultSet.getInt("category_id_fk");
+            Category category = categoryService.loadCategoryByID(category_id_fk);
+            int brand_id_fk = resultSet.getInt("brand_id_fk");
+            Brands brand = brandService.loadBrandById(brand_id_fk);
+
+            Products product = new Products(id,productName1,product_creat_date,category,brand);
+            products[i] = product;
+            i++;
+        }
+        return products;
+    }
 }

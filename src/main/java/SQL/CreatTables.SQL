@@ -18,3 +18,11 @@ CREATE TABLE IF NOT EXISTS category(
     category_name VARCHAR(255) UNIQUE NOT NULL ,
     category_description VARCHAR(255)
 );
+
+CREATE TABLE IF NOT EXISTS product(
+    product_id SERIAL PRIMARY KEY ,
+    product_name VARCHAR(255),
+    product_creat_date DATE,
+    category_id_fk INT REFERENCES category(category_id),
+    brand_id_fk INT REFERENCES brand(brand_id)
+);

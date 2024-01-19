@@ -102,7 +102,7 @@ public class BrandService {
         System.out.println("plz enter your brand id");
         int id = sc.nextInt();
         sc.nextLine();
-        System.out.println("plz enter your new brand website");
+        System.out.println("plz enter your new brand description");
         String newBrandDescription = sc.nextLine();
         int edit = brandRepository.editBrandDescription(id,newBrandDescription);
         if(edit == 1)

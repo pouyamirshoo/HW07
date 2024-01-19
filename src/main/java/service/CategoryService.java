@@ -71,4 +71,16 @@ public class CategoryService {
         else
             System.out.println("try again");
     }
+    public void editCategoryDescription() throws SQLException {
+        System.out.println("plz enter your category id");
+        int id = sc.nextInt();
+        sc.nextLine();
+        System.out.println("plz enter your new category description");
+        String newCategoryDescription = sc.nextLine();
+        int edit =categoryRepository.editCategoryDescription(id,newCategoryDescription);
+        if(edit == 1)
+            System.out.println("your category description has changed");
+        else
+            System.out.println("try again");
+    }
 }

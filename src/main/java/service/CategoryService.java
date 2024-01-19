@@ -49,4 +49,8 @@ public class CategoryService {
             System.out.println(categories[i].toString());
         }
     }
+    public Category getCategory(int id) throws SQLException {
+       Category category = categoryRepository.takeCategory(id);
+       return category;
+    }
 }

@@ -86,4 +86,16 @@ public class BrandService {
         else
             System.out.println("try again");
     }
+    public void editBrandWebsite() throws SQLException {
+        System.out.println("plz enter your brand id");
+        int id = sc.nextInt();
+        sc.nextLine();
+        System.out.println("plz enter your new brand website");
+        String newBrandWebsite = getWebsiteFromUser();
+        int edit = brandRepository.editBrandWebsite(id,newBrandWebsite);
+        if(edit == 1)
+            System.out.println("your brand website has changed");
+        else
+            System.out.println("try again");
+    }
 }

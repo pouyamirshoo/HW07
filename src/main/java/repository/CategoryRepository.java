@@ -91,4 +91,13 @@ public class CategoryRepository {
         int result = preparedStatement.executeUpdate();
         return result;
     }
+    public int editCategoryName(int id,String newCategoryName) throws SQLException {
+
+        String editCategoryName = "UPDATE category SET category_name = ? WHERE category_id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(editCategoryName);
+        preparedStatement.setString(1,newCategoryName);
+        preparedStatement.setInt(2,id);
+        int result = preparedStatement.executeUpdate();
+        return result;
+    }
 }

@@ -54,6 +54,10 @@ public class BrandService {
             System.out.println(brand.toString());
         }
     }
+    public Brands loadBrandById(int id) throws SQLException {
+        Brands brands = brandRepository.loadById(id);
+        return brands;
+    }
     public void loadAllBrands() throws SQLException {
         Brands[]brands = brandRepository.loadAll();
         for (int i = 0; i < brands.length; i++) {

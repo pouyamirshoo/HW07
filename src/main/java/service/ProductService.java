@@ -76,5 +76,17 @@ public class ProductService {
         else
             System.out.println("edit failed,try again");
     }
+    public void editProductCreatDate() throws SQLException {
+        System.out.println("plz enter the id of the product you want to edit creat date");
+        int id = sc.nextInt();
+        sc.nextLine();
+        System.out.println("plz enter the new creat date as mm/dd/yyyy for product");
+        String newName = sc.nextLine();
+        int res = productRepository.editProductCreatDate(id,newName);
+        if(res == 1)
+            System.out.println("edit complete");
+        else
+            System.out.println("edit failed,try again");
+    }
 
 }

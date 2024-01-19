@@ -1,6 +1,7 @@
 package repository;
 
 import feilds.Brands;
+import feilds.Category;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -68,6 +69,21 @@ public class BrandRepository {
             String brandWebsite = resultSet.getString("brand_website");
             String brandDescription = resultSet.getString("brand_description");
             Brands brand = new Brands(id,brandName1,brandWebsite,brandDescription);
+            return brand;
+        } else
+            return null;
+    }
+    public Brands takeBrand(int id) throws SQLException {
+
+        String takeBrand = "SELECT * FROM brand WHERE brand_id =?";
+        PreparedStatement preparedStatement = connection.prepareStatement(takeBrand);
+        preparedStatement.setInt(1, id);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        if (resultSet.next()) {
+            String brandName = resultSet.getString("brand_name");
+            String brandWebsite = resultSet.getString("brand_website");
+            String brandDescription = resultSet.getString("brand_description");
+            Brands brand = new Brands(brandName,brandWebsite,brandDescription);
             return brand;
         } else
             return null;

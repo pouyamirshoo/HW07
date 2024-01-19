@@ -26,3 +26,11 @@ CREATE TABLE IF NOT EXISTS product(
     category_id_fk INT REFERENCES category(category_id),
     brand_id_fk INT REFERENCES brand(brand_id)
 );
+
+CREATE TABLE IF NOT EXISTS shareholder(
+    shareholder_id SERIAL PRIMARY KEY ,
+    shareholder_name VARCHAR(255),
+    shareholder_phone_number VARCHAR(255),
+    shareholder_national_code VARCHAR(255) UNIQUE NOT NULL
+);
+

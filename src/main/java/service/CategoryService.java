@@ -1,11 +1,7 @@
 package service;
 
-
-import feilds.Brands;
 import feilds.Category;
 import repository.CategoryRepository;
-import utility.Validation;
-
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -52,5 +48,15 @@ public class CategoryService {
     public Category getCategory(int id) throws SQLException {
        Category category = categoryRepository.takeCategory(id);
        return category;
+    }
+    public void deleteOneCategory() throws SQLException {
+        System.out.println("plz enter the category id you want to delete");
+        int id = sc.nextInt();
+        sc.nextLine();
+        int del = categoryRepository.deleteCategory(id);
+        if(del == 1)
+            System.out.println("the category has been deleted");
+        else
+            System.out.println("enter the valid id");
     }
 }

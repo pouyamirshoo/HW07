@@ -72,4 +72,18 @@ public class CategoryRepository {
         }
         return categories;
     }
+    public Category takeCategory(int id) throws SQLException {
+
+        String takeCategory = "SELECT * FROM category WHERE category_id =?";
+        PreparedStatement preparedStatement = connection.prepareStatement(takeCategory);
+        preparedStatement.setInt(1, id);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        if (resultSet.next()) {
+            String categoryName = resultSet.getString("category_name");
+            String categoryDescription = resultSet.getString("category_description");
+            Category category = new Category(categoryName,categoryDescription);
+            return category;
+        } else
+            return null;
+    }
 }

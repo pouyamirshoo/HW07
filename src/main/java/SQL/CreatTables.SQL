@@ -34,3 +34,8 @@ CREATE TABLE IF NOT EXISTS shareholder(
     shareholder_national_code VARCHAR(255) UNIQUE NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS shareholder_brand(
+    shareholder_id_fk INT REFERENCES shareholder(shareholder_id),
+    brand_id_fk INT REFERENCES brand(brand_id)
+);
+

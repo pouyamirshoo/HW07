@@ -52,6 +52,11 @@ public class Products {
     public Category getCategory() {
         return category;
     }
+    public int categoryId (){
+        Category category1 = getCategory();
+        int ccId = category1.getCategoryId();
+        return ccId;
+    }
 
     public void setCategory(Category category) {
         this.category = category;
@@ -59,6 +64,11 @@ public class Products {
 
     public Brands getBrand() {
         return brand;
+    }
+    public int brandId (){
+        Brands brand1 = getBrand();
+        int ccId2 = brand1.getBrandId();
+        return ccId2;
     }
 
     public void setBrand(Brands brand) {

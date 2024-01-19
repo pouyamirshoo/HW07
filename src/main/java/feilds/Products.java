@@ -81,8 +81,8 @@ public class Products {
                 "productId=" + productId +
                 ", productName='" + productName + '\'' +
                 ", productCreatDate='" + productCreatDate + '\'' +
-                ", category=" + category +
-                ", brand=" + brand +
+                ", category_id=" + category.getCategoryId() +
+                ", brand_id=" + brand.getBrandId() +
                 '}';
     }
 }

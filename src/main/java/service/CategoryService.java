@@ -45,6 +45,8 @@ public class CategoryService {
     }
     public void loadAllCategories() throws SQLException {
         Category[]categories = categoryRepository.loadAll();
-        System.out.println(categories.toString());
+        for (int i = 0; i < categories.length; i++) {
+            System.out.println(categories[i].toString());
+        }
     }
 }

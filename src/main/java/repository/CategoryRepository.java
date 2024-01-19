@@ -36,6 +36,21 @@ public class CategoryRepository {
         } else
             return null;
     }
+    public Category loadById(int id) throws SQLException {
+
+        String loadCategory = "SELECT * FROM category WHERE category_id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(loadCategory);
+        preparedStatement.setInt(1, id);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        if (resultSet.next()) {
+            int idC = resultSet.getInt("category_id");
+            String categoryName = resultSet.getString("category_name");
+            String categoryDescription = resultSet.getString("category_description");
+            Category category = new Category(idC,categoryName,categoryDescription);
+            return category;
+        } else
+            return null;
+    }
     public int numOfLoadAll() throws SQLException {
 
         int num = 0;

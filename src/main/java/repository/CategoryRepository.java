@@ -54,7 +54,7 @@ public class CategoryRepository {
         Category [] categories = new Category[numOfLoadAll()];
         int i = 0;
 
-        String loadAllCategories = "SELECT * FROM category ";
+        String loadAllCategories = "SELECT * FROM category ORDER BY category_id";
         PreparedStatement preparedStatement = connection.prepareStatement(loadAllCategories);
         ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {

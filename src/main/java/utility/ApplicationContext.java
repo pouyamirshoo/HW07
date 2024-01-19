@@ -4,6 +4,7 @@ import Connection.JdbcConnection;
 
 import repository.BrandRepository;
 import repository.CategoryRepository;
+import repository.ProductRepository;
 import repository.UserRepository;
 import service.BrandService;
 import service.CategoryService;
@@ -18,6 +19,7 @@ public class ApplicationContext {
     private static final BrandService BRAND_SERVICE;
     private static final CategoryRepository CATEGORY_REPOSITORY;
     private static final CategoryService CATEGORY_SERVICE;
+    private static final ProductRepository PRODUCT_REPOSITORY;
 
 
     static {
@@ -28,6 +30,7 @@ public class ApplicationContext {
         BRAND_SERVICE = new BrandService(BRAND_REPOSITORY);
         CATEGORY_REPOSITORY = new CategoryRepository(CONNECTION);
         CATEGORY_SERVICE = new CategoryService(CATEGORY_REPOSITORY);
+        PRODUCT_REPOSITORY = new ProductRepository(CONNECTION);
 
     }
     public static UserService getUserService (){

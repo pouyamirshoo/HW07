@@ -1,7 +1,6 @@
 package repository;
 
 import feilds.Brands;
-import feilds.Category;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -94,6 +93,15 @@ public class BrandRepository {
         String deleteBrand = "DELETE FROM brand WHERE brand_id = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(deleteBrand);
         preparedStatement.setInt(1,id);
+        int result = preparedStatement.executeUpdate();
+        return result;
+    }
+    public int editBrandName(int id,String newBrandName) throws SQLException {
+
+        String editBrandName = "UPDATE brand SET brand_name = ? WHERE brand_id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(editBrandName);
+        preparedStatement.setString(1,newBrandName);
+        preparedStatement.setInt(2,id);
         int result = preparedStatement.executeUpdate();
         return result;
     }

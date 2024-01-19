@@ -101,4 +101,13 @@ public class ProductRepository {
         int result = preparedStatement.executeUpdate();
         return result;
     }
+    public int editProductName(int id,String newProductName) throws SQLException {
+
+        String editProductName = "UPDATE product SET product_name = ? WHERE product_id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(editProductName);
+        preparedStatement.setString(1,newProductName);
+        preparedStatement.setInt(2,id);
+        int result = preparedStatement.executeUpdate();
+        return result;
+    }
 }

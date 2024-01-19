@@ -74,4 +74,16 @@ public class BrandService {
         else
             System.out.println("enter the valid id");
     }
+    public void editBrandName() throws SQLException {
+        System.out.println("plz enter your brand id");
+        int id = sc.nextInt();
+        sc.nextLine();
+        System.out.println("plz enter your new brand name");
+        String newBrandName = sc.nextLine();
+        int edit = brandRepository.editBrandName(id,newBrandName);
+        if(edit == 1)
+            System.out.println("your brand name has changed");
+        else
+            System.out.println("try again");
+    }
 }

@@ -102,7 +102,7 @@ public class CategoryRepository {
     }
     public int editCategoryDescription(int id,String newCategoryDescription) throws SQLException {
 
-        String editCategoryDescription = "UPDATE description SET category_description = ? WHERE category_id = ?";
+        String editCategoryDescription = "UPDATE category SET category_description = ? WHERE category_id = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(editCategoryDescription);
         preparedStatement.setString(1,newCategoryDescription);
         preparedStatement.setInt(2,id);

@@ -89,4 +89,12 @@ public class BrandRepository {
         } else
             return null;
     }
+    public int deleteBrand(int id) throws SQLException {
+
+        String deleteBrand = "DELETE FROM brand WHERE brand_id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(deleteBrand);
+        preparedStatement.setInt(1,id);
+        int result = preparedStatement.executeUpdate();
+        return result;
+    }
 }

@@ -64,5 +64,17 @@ public class ProductService {
         else
             System.out.println("wrong id");
     }
+    public void editProductName() throws SQLException {
+        System.out.println("plz enter the id of the product you want to edit name");
+        int id = sc.nextInt();
+        sc.nextLine();
+        System.out.println("plz enter the new name for product");
+        String newName = sc.nextLine();
+        int res = productRepository.editProductName(id,newName);
+        if(res == 1)
+            System.out.println("edit complete");
+        else
+            System.out.println("edit failed,try again");
+    }
 
 }

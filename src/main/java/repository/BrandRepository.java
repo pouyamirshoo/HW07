@@ -80,10 +80,11 @@ public class BrandRepository {
         preparedStatement.setInt(1, id);
         ResultSet resultSet = preparedStatement.executeQuery();
         if (resultSet.next()) {
+            int Bid = resultSet.getInt("brand_id");
             String brandName = resultSet.getString("brand_name");
             String brandWebsite = resultSet.getString("brand_website");
             String brandDescription = resultSet.getString("brand_description");
-            Brands brand = new Brands(brandName,brandWebsite,brandDescription);
+            Brands brand = new Brands(Bid,brandName,brandWebsite,brandDescription);
             return brand;
         } else
             return null;

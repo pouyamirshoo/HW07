@@ -116,7 +116,20 @@ public class Menu {
 
     }
     public void product() throws SQLException {
+        System.out.println("press 1 for make a product");
+        System.out.println("press 2 for check a product");
+        int productCH = sc.nextInt();
+        sc.nextLine();
+        switch (productCH){
+            case 1 -> makeProduct();
+            case 2 -> checkProduct();
+        }
+    }
+    public void makeProduct() throws SQLException {
         showAllBrAndCa();
         productService.saveProduct();
+    }
+    public void checkProduct() throws SQLException {
+        productService.loadOneProduct();
     }
 }

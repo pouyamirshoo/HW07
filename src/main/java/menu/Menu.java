@@ -119,12 +119,14 @@ public class Menu {
         System.out.println("press 1 for make a product");
         System.out.println("press 2 for check a product");
         System.out.println("press 3 for delete a product");
+        System.out.println("press 4 for edit a product");
         int productCH = sc.nextInt();
         sc.nextLine();
         switch (productCH){
             case 1 -> makeProduct();
             case 2 -> checkProduct();
             case 3 -> deleteProduct();
+            case 4 -> editProduct();
         }
     }
     public void makeProduct() throws SQLException {
@@ -137,5 +139,22 @@ public class Menu {
     public void deleteProduct() throws SQLException {
         productService.showAllProducts();
         productService.deleteOneProduct();
+    }
+    public void editProduct() throws SQLException {
+        System.out.println("all products");
+        productService.showAllProducts();
+        System.out.println("press 1 for edit product name");
+        System.out.println("press 2 for edit product creat date");
+        System.out.println("press 3 for edit product category id");
+        System.out.println("press 4 for edit product brand id");
+        int editPr = sc.nextInt();
+        sc.nextLine();
+        switch (editPr){
+            case 1 -> productService.editProductName();
+            case 2 -> productService.editProductCreatDate();
+            case 3 -> productService.editProductCategoryId();
+            case 4 -> productService.editProductBrandId();
+        }
+
     }
 }

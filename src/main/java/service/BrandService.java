@@ -2,6 +2,7 @@ package service;
 
 
 import feilds.Brands;
+import feilds.Category;
 import feilds.Users;
 import repository.BrandRepository;
 import utility.Validation;
@@ -60,5 +61,9 @@ public class BrandService {
         for (int i = 0; i < brands.length; i++) {
             System.out.println(brands[i].toString());
         }
+    }
+    public Brands getBrand(int id) throws SQLException {
+        Brands brand  = brandRepository.takeBrand(id);
+        return brand;
     }
 }

@@ -104,7 +104,7 @@ public class BrandService {
         sc.nextLine();
         System.out.println("plz enter your new brand website");
         String newBrandDescription = sc.nextLine();
-        int edit = brandRepository.editBrandWebsite(id,newBrandDescription);
+        int edit = brandRepository.editBrandDescription(id,newBrandDescription);
         if(edit == 1)
             System.out.println("your brand description has changed");
         else

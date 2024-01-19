@@ -46,14 +46,19 @@ public class Menu {
     public void brand() throws SQLException {
         System.out.println("press 1 for make brand");
         System.out.println("press 2 for check brand");
-        System.out.println("press 3 for show all brands");
+        System.out.println("press 3 for delete one brand");
         int brandCh = sc.nextInt();
         sc.nextLine();
         switch (brandCh){
             case 1 -> brandService.saveBrand();
             case 2 -> brandService.loadBrand();
-            case 3 -> brandService.loadAllBrands();
+            case 3 -> delBrand();
         }
+    }
+    public void delBrand() throws SQLException {
+        System.out.println("all brands");
+        brandService.loadAllBrands();
+        brandService.deleteOneBrand();
     }
     public void category() throws SQLException {
         System.out.println("press 1 for make category");

@@ -2,8 +2,6 @@ package service;
 
 
 import feilds.Brands;
-import feilds.Category;
-import feilds.Users;
 import repository.BrandRepository;
 import utility.Validation;
 
@@ -65,5 +63,15 @@ public class BrandService {
     public Brands getBrand(int id) throws SQLException {
         Brands brand  = brandRepository.takeBrand(id);
         return brand;
+    }
+    public void deleteOneBrand() throws SQLException {
+        System.out.println("plz enter the brand id you want to delete");
+        int id = sc.nextInt();
+        sc.nextLine();
+        int del = brandRepository.deleteBrand(id);
+        if(del == 1)
+            System.out.println("the brand has been deleted");
+        else
+            System.out.println("enter the valid id");
     }
 }

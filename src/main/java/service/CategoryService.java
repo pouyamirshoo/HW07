@@ -59,4 +59,16 @@ public class CategoryService {
         else
             System.out.println("enter the valid id");
     }
+    public void editCategoryName() throws SQLException {
+        System.out.println("plz enter your category id");
+        int id = sc.nextInt();
+        sc.nextLine();
+        System.out.println("plz enter your new category name");
+        String newCategoryName = sc.nextLine();
+        int edit =categoryRepository.editCategoryName (id,newCategoryName);
+        if(edit == 1)
+            System.out.println("your category name has changed");
+        else
+            System.out.println("try again");
+    }
 }

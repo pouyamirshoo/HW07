@@ -122,4 +122,13 @@ public class ProductRepository {
         int result = preparedStatement.executeUpdate();
         return result;
     }
+    public int editProductCategoryId(int id,int newProductCategoryId) throws SQLException {
+
+        String editProductCategoryId = "UPDATE product SET category_id_fk = ? WHERE product_id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(editProductCategoryId);
+        preparedStatement.setInt(1,newProductCategoryId);
+        preparedStatement.setInt(2,id);
+        int result = preparedStatement.executeUpdate();
+        return result;
+    }
 }

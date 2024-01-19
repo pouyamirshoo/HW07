@@ -81,8 +81,21 @@ public class ProductService {
         int id = sc.nextInt();
         sc.nextLine();
         System.out.println("plz enter the new creat date as mm/dd/yyyy for product");
-        String newName = sc.nextLine();
-        int res = productRepository.editProductCreatDate(id,newName);
+        String newCreatDate = sc.nextLine();
+        int res = productRepository.editProductCreatDate(id,newCreatDate);
+        if(res == 1)
+            System.out.println("edit complete");
+        else
+            System.out.println("edit failed,try again");
+    }
+    public void editProductCategoryId() throws SQLException {
+        System.out.println("plz enter the id of the product you want to edit category id");
+        int id = sc.nextInt();
+        sc.nextLine();
+        System.out.println("plz enter the new category id");
+        int newCategoryId = sc.nextInt();
+        sc.nextLine();
+        int res = productRepository.editProductCategoryId(id,newCategoryId);
         if(res == 1)
             System.out.println("edit complete");
         else

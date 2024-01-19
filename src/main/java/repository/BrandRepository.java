@@ -105,4 +105,13 @@ public class BrandRepository {
         int result = preparedStatement.executeUpdate();
         return result;
     }
+    public int editBrandWebsite(int id,String newBrandWebsite) throws SQLException {
+
+        String editBrandWebsite = "UPDATE brand SET brand_website = ? WHERE brand_id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(editBrandWebsite);
+        preparedStatement.setString(1,newBrandWebsite);
+        preparedStatement.setInt(2,id);
+        int result = preparedStatement.executeUpdate();
+        return result;
+    }
 }

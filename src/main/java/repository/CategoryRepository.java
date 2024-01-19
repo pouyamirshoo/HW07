@@ -83,4 +83,12 @@ public class CategoryRepository {
         else
             return null;
     }
+    public int deleteCategory(int id) throws SQLException {
+
+        String deleteCategory = "DELETE FROM category WHERE category_id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(deleteCategory);
+        preparedStatement.setInt(1,id);
+        int result = preparedStatement.executeUpdate();
+        return result;
+    }
 }

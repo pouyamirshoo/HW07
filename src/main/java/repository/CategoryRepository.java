@@ -1,10 +1,5 @@
 package repository;
-
-;
-
-import feilds.Brands;
 import feilds.Category;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -79,11 +74,13 @@ public class CategoryRepository {
         preparedStatement.setInt(1, id);
         ResultSet resultSet = preparedStatement.executeQuery();
         if (resultSet.next()) {
+            int Cid = resultSet.getInt("category_id");
             String categoryName = resultSet.getString("category_name");
             String categoryDescription = resultSet.getString("category_description");
-            Category category = new Category(categoryName,categoryDescription);
+            Category category = new Category(Cid,categoryName,categoryDescription);
             return category;
-        } else
+        }
+        else
             return null;
     }
 }

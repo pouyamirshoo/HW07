@@ -32,12 +32,17 @@ public class CategoryService {
         String categoryName = sc.nextLine();
 
         Category category = categoryRepository.load(categoryName);
-        if(category == null)
+        if (category == null)
             System.out.println("wrong brand name or make a brand first");
         else {
             System.out.println("welcome");
             System.out.println(category.toString());
         }
+    }
+        public Category loadCategoryByID (int id) throws SQLException {
+
+        Category category1 = categoryRepository.loadById(id);
+        return category1;
     }
     public void loadAllCategories() throws SQLException {
         Category[]categories = categoryRepository.loadAll();

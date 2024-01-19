@@ -39,5 +39,14 @@ public class ProductService {
         else
             System.out.println("this product already made");
     }
+    public void loadOneProduct() throws SQLException {
+        System.out.println("plz enter your product name");
+        String productName = sc.nextLine();
+        Products product = productRepository.load(productName);
+        if(product != null)
+            System.out.println(product.toString());
+        else
+            System.out.println("enter a valid product name or make one product");
+    }
 
 }

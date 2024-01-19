@@ -47,18 +47,33 @@ public class Menu {
         System.out.println("press 1 for make brand");
         System.out.println("press 2 for check brand");
         System.out.println("press 3 for delete one brand");
+        System.out.println("press 4 for edit brand");
         int brandCh = sc.nextInt();
         sc.nextLine();
         switch (brandCh){
             case 1 -> brandService.saveBrand();
             case 2 -> brandService.loadBrand();
             case 3 -> delBrand();
+            case 4 -> editBrand();
         }
     }
     public void delBrand() throws SQLException {
         System.out.println("all brands");
         brandService.loadAllBrands();
         brandService.deleteOneBrand();
+    }
+    public void editBrand() throws SQLException {
+        brandService.loadAllBrands();
+        System.out.println("press 1 for edit brand name");
+        System.out.println("press 2 for edit brand website");
+        System.out.println("press 3 for edit brand description");
+        int edt = sc.nextInt();
+        sc.nextLine();
+        switch (edt){
+            case 1 -> brandService.editBrandName();
+            case 2 -> brandService.editBrandWebsite();
+            case 3 -> brandService.editBrandDescription();
+        }
     }
     public void category() throws SQLException {
         System.out.println("press 1 for make category");

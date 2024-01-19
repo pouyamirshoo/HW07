@@ -54,5 +54,15 @@ public class ProductService {
             System.out.println(products[i].toString());
         }
     }
+    public void deleteOneProduct() throws SQLException {
+        System.out.println("plz enter the id of the product you want to delete");
+        int del = sc.nextInt();
+        sc.nextLine();
+        int res = productRepository.deleteProduct(del);
+        if(res == 1)
+            System.out.println("the product deleted");
+        else
+            System.out.println("wrong id");
+    }
 
 }

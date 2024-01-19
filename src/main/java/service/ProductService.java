@@ -48,5 +48,11 @@ public class ProductService {
         else
             System.out.println("enter a valid product name or make one product");
     }
+    public void showAllProducts() throws SQLException {
+        Products [] products = productRepository.allProducts();
+        for (int i = 0; i < products.length; i++) {
+            System.out.println(products[i].toString());
+        }
+    }
 
 }

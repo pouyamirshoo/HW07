@@ -8,6 +8,7 @@ import repository.ProductRepository;
 import repository.UserRepository;
 import service.BrandService;
 import service.CategoryService;
+import service.ProductService;
 import service.UserService;
 
 public class ApplicationContext {
@@ -20,6 +21,7 @@ public class ApplicationContext {
     private static final CategoryRepository CATEGORY_REPOSITORY;
     private static final CategoryService CATEGORY_SERVICE;
     private static final ProductRepository PRODUCT_REPOSITORY;
+    private static final ProductService PRODUCT_SERVICE;
 
 
     static {
@@ -31,6 +33,7 @@ public class ApplicationContext {
         CATEGORY_REPOSITORY = new CategoryRepository(CONNECTION);
         CATEGORY_SERVICE = new CategoryService(CATEGORY_REPOSITORY);
         PRODUCT_REPOSITORY = new ProductRepository(CONNECTION);
+        PRODUCT_SERVICE = new ProductService(PRODUCT_REPOSITORY);
 
     }
     public static UserService getUserService (){
@@ -41,6 +44,9 @@ public class ApplicationContext {
     }
     public static CategoryService getCategoryService (){
         return CATEGORY_SERVICE;
+    }
+    public static ProductService getProductService (){
+        return PRODUCT_SERVICE;
     }
 
 

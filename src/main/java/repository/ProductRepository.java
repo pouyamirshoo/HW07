@@ -110,4 +110,16 @@ public class ProductRepository {
         int result = preparedStatement.executeUpdate();
         return result;
     }
+    public int editProductCreatDate(int id,String newProductCreatDate) throws SQLException {
+
+        java.util.Date myDate = new java.util.Date(newProductCreatDate);
+        java.sql.Date sqlDate = new java.sql.Date(myDate.getTime());
+
+        String editProductCreatDate = "UPDATE product SET product_creat_date = ? WHERE product_id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(editProductCreatDate);
+        preparedStatement.setDate(1,sqlDate);
+        preparedStatement.setInt(2,id);
+        int result = preparedStatement.executeUpdate();
+        return result;
+    }
 }

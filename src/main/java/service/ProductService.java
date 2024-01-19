@@ -101,5 +101,18 @@ public class ProductService {
         else
             System.out.println("edit failed,try again");
     }
+    public void editProductBrandId() throws SQLException {
+        System.out.println("plz enter the id of the product you want to edit brand id");
+        int id = sc.nextInt();
+        sc.nextLine();
+        System.out.println("plz enter the new brand id");
+        int newBrandId = sc.nextInt();
+        sc.nextLine();
+        int res = productRepository.editProductBrandId(id,newBrandId);
+        if(res == 1)
+            System.out.println("edit complete");
+        else
+            System.out.println("edit failed,try again");
+    }
 
 }

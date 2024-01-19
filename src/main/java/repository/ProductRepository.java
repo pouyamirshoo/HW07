@@ -131,4 +131,13 @@ public class ProductRepository {
         int result = preparedStatement.executeUpdate();
         return result;
     }
+    public int editProductBrandId(int id,int newProductBrandId) throws SQLException {
+
+        String editProductBrandId = "UPDATE product SET brand_id_fk = ? WHERE product_id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(editProductBrandId);
+        preparedStatement.setInt(1,newProductBrandId);
+        preparedStatement.setInt(2,id);
+        int result = preparedStatement.executeUpdate();
+        return result;
+    }
 }

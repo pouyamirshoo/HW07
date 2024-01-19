@@ -42,7 +42,7 @@ public class BrandRepository {
         Brands [] brands = new Brands[numOfLoadAll()];
         int i = 0;
 
-        String loadAllBrands = "SELECT * FROM brand ";
+        String loadAllBrands = "SELECT * FROM brand  ORDER BY brand_id";
         PreparedStatement preparedStatement = connection.prepareStatement(loadAllBrands);
         ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {

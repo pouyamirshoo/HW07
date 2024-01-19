@@ -2,6 +2,7 @@ package menu;
 
 import service.BrandService;
 import service.CategoryService;
+import service.ProductService;
 import service.UserService;
 import utility.ApplicationContext;
 
@@ -13,6 +14,7 @@ public class Menu {
     private final UserService userService = ApplicationContext.getUserService();
     private final BrandService brandService = ApplicationContext.getBrandService();
     private final CategoryService categoryService = ApplicationContext.getCategoryService();
+    private final ProductService productService = ApplicationContext.getProductService();
 
     public void publicMenu() throws SQLException {
         System.out.println("***** WELCOME *****");
@@ -20,7 +22,7 @@ public class Menu {
         System.out.println("2-LOG IN");
         System.out.println("3-BRAND");
         System.out.println("4-CATEGORY");
-        System.out.println("5-SHOW ALL BRANDS AND CATEGORIES");
+        System.out.println("5-PRODUCT");
         System.out.println("Choose your number:");
 
         int number = sc.nextInt();
@@ -31,7 +33,7 @@ public class Menu {
             case 2 -> logIn();
             case 3 -> brand();
             case 4 -> category();
-            case 5 -> showAllBrAndCa();
+            case 5 -> product();
         }
     }
 
@@ -72,5 +74,9 @@ public class Menu {
         System.out.println("all categories");
         categoryService.loadAllCategories();
 
+    }
+    public void product() throws SQLException {
+        showAllBrAndCa();
+        productService.saveProduct();
     }
 }

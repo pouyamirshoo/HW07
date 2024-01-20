@@ -2,10 +2,7 @@ package utility;
 import java.sql.Connection;
 import Connection.JdbcConnection;
 
-import repository.BrandRepository;
-import repository.CategoryRepository;
-import repository.ProductRepository;
-import repository.UserRepository;
+import repository.*;
 import service.BrandService;
 import service.CategoryService;
 import service.ProductService;
@@ -22,6 +19,7 @@ public class ApplicationContext {
     private static final CategoryService CATEGORY_SERVICE;
     private static final ProductRepository PRODUCT_REPOSITORY;
     private static final ProductService PRODUCT_SERVICE;
+    private static final ShareholderRepository SHAREHOLDER_REPOSITORY;
 
 
     static {
@@ -34,6 +32,7 @@ public class ApplicationContext {
         CATEGORY_SERVICE = new CategoryService(CATEGORY_REPOSITORY);
         PRODUCT_REPOSITORY = new ProductRepository(CONNECTION);
         PRODUCT_SERVICE = new ProductService(PRODUCT_REPOSITORY);
+        SHAREHOLDER_REPOSITORY = new ShareholderRepository(CONNECTION);
 
     }
     public static UserService getUserService (){

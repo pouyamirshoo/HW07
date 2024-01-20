@@ -46,6 +46,9 @@ public class ApplicationContext {
     public static ProductService getProductService (){
         return PRODUCT_SERVICE;
     }
+    public static ShareholderService getShareholderService (){
+        return SHAREHOLDER_SERVICE;
+    }
 
 
 }

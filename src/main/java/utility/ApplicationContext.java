@@ -3,10 +3,7 @@ import java.sql.Connection;
 import Connection.JdbcConnection;
 
 import repository.*;
-import service.BrandService;
-import service.CategoryService;
-import service.ProductService;
-import service.UserService;
+import service.*;
 
 public class ApplicationContext {
 
@@ -20,6 +17,7 @@ public class ApplicationContext {
     private static final ProductRepository PRODUCT_REPOSITORY;
     private static final ProductService PRODUCT_SERVICE;
     private static final ShareholderRepository SHAREHOLDER_REPOSITORY;
+    private static final ShareholderService SHAREHOLDER_SERVICE;
 
 
     static {
@@ -33,6 +31,7 @@ public class ApplicationContext {
         PRODUCT_REPOSITORY = new ProductRepository(CONNECTION);
         PRODUCT_SERVICE = new ProductService(PRODUCT_REPOSITORY);
         SHAREHOLDER_REPOSITORY = new ShareholderRepository(CONNECTION);
+        SHAREHOLDER_SERVICE = new ShareholderService(SHAREHOLDER_REPOSITORY);
 
     }
     public static UserService getUserService (){

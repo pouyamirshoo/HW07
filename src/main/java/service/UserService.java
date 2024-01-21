@@ -1,6 +1,6 @@
 package service;
 
-import feilds.Users;
+import models.Users;
 import repository.UserRepository;
 import utility.Validation;
 

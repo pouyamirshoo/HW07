@@ -1,6 +1,6 @@
 package service;
 
-import feilds.Category;
+import models.Category;
 import repository.CategoryRepository;
 import java.sql.SQLException;
 import java.util.Scanner;

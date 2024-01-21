@@ -1,12 +1,11 @@
 package repository;
 
-import Connection.JdbcConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import feilds.Users;
+import models.Users;
 
 
 public class UserRepository {

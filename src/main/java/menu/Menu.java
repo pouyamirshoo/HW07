@@ -1,9 +1,6 @@
 package menu;
 
-import service.BrandService;
-import service.CategoryService;
-import service.ProductService;
-import service.UserService;
+import service.*;
 import utility.ApplicationContext;
 
 import java.sql.SQLException;
@@ -15,6 +12,7 @@ public class Menu {
     private final BrandService brandService = ApplicationContext.getBrandService();
     private final CategoryService categoryService = ApplicationContext.getCategoryService();
     private final ProductService productService = ApplicationContext.getProductService();
+    private final ShareholderService shareholderService = ApplicationContext.getShareholderService();
 
     public void publicMenu() throws SQLException {
         System.out.println("***** WELCOME *****");
@@ -23,6 +21,7 @@ public class Menu {
         System.out.println("3-BRAND");
         System.out.println("4-CATEGORY");
         System.out.println("5-PRODUCT");
+        System.out.println("6-SHAREHOLDER");
         System.out.println("Choose your number:");
 
         int number = sc.nextInt();
@@ -34,6 +33,7 @@ public class Menu {
             case 3 -> brand();
             case 4 -> category();
             case 5 -> product();
+            case 6 -> shareholder();
         }
     }
 
@@ -155,6 +155,8 @@ public class Menu {
             case 3 -> productService.editProductCategoryId();
             case 4 -> productService.editProductBrandId();
         }
-
+    }
+    public void shareholder() throws SQLException {
+        shareholderService.saveShareHolder();
     }
 }

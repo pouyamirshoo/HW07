@@ -1,8 +1,8 @@
 package service;
 
-import feilds.Brands;
-import feilds.Category;
-import feilds.Products;
+import models.Brands;
+import models.Category;
+import models.Products;
 import repository.ProductRepository;
 import utility.ApplicationContext;
 

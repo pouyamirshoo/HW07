@@ -120,7 +120,7 @@ public class BrandService {
         sc.nextLine();
         Brands [] brands = new Brands[num];
         for (int i = 0; i < num; i++) {
-            System.out.println("plz enter the "+ i+1 +"th brand name");
+            System.out.println("plz enter the "+ (i+1) +"th brand name");
             String temp = sc.nextLine();
             brands[i] = brandRepository.load(temp);
         }

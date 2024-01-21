@@ -157,6 +157,20 @@ public class Menu {
         }
     }
     public void shareholder() throws SQLException {
+        System.out.println("press 1 to make a shareholder");
+        System.out.println("press 2 to loud a shareholder");
+        int shNum = sc.nextInt();
+        sc.nextLine();
+        switch (shNum){
+            case 1 -> saveShareHolder();
+            case 2 -> loudOneShareHolder();
+        }
+
+    }
+    public void saveShareHolder() throws SQLException {
         shareholderService.saveShareHolder();
+    }
+    public void loudOneShareHolder() throws SQLException {
+        shareholderService.loudOneShareHolder();
     }
 }

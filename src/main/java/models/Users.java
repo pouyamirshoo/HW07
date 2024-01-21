@@ -1,4 +1,4 @@
-package feilds;
+package models;
 
 public class Users {
     int UserId;

@@ -1,6 +1,4 @@
-package feilds;
-
-import java.util.Arrays;
+package models;
 
 public class Shareholder {
     int shareHolderId;
@@ -25,6 +23,10 @@ public class Shareholder {
         this.shareHolderPhoneNumber = shareHolderPhoneNumber;
         this.shareHolderNationalCode = shareHolderNationalCode;
         this.brands = brands;
+    }
+
+    public Shareholder(int shareHolderId) {
+        this.shareHolderId = shareHolderId;
     }
 
     public int getShareHolderId() {

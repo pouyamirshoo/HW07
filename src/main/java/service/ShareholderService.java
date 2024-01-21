@@ -64,10 +64,23 @@ public class ShareholderService {
        else
         System.out.println(shareholder.toString());
     }
+    public void loudOneShareHolderById() throws SQLException {
+        System.out.println("plz enter the shareholder id");
+        int id = sc.nextInt();
+        sc.nextLine();
+       Shareholder shareholder = shareholderRepository.loudById(id);
+       if(shareholder == null)
+           System.out.println("wrong id or there is no shareholder");
+       else
+        System.out.println(shareholder.toString());
+    }
     public void brandsOfOneShareHolder() throws SQLException {
         System.out.println("plz enter the id of shareholder");
         int id = sc.nextInt();
         sc.nextLine();
+        Shareholder shareholder = shareholderRepository.loudById(id);
+        System.out.println("the shareholder");
+        System.out.println(shareholder.toString());
         Brands [] brands = shareholderRepository.shareholderBrands(id);
         System.out.println(Arrays.toString(brands));
     }

@@ -70,6 +70,23 @@ public class ShareholderRepository {
         else
             return null;
     }
+    public Shareholder loudById(int id) throws SQLException {
+
+        String loudById = "SELECT * FROM shareholder WHERE shareholder_id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(loudById);
+        preparedStatement.setInt(1,id);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        if (resultSet.next()) {
+            int fk = resultSet.getInt("shareholder_id");
+            String name1 = resultSet.getString("shareholder_name");
+            String phone = resultSet.getString("shareholder_phone_number");
+            String code = resultSet.getString("shareholder_national_code");
+            Shareholder shareholder = new Shareholder(fk,name1,phone,code);
+            return shareholder;
+        }
+        else
+            return null;
+    }
     public int numOfArray(int id) throws SQLException {
         String shareholderBrands = "SELECT * FROM shareholder_brand WHERE shareholder_id_fk = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(shareholderBrands);

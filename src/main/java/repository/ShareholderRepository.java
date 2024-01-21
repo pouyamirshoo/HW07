@@ -12,6 +12,7 @@ import java.sql.SQLException;
 
 public class ShareholderRepository {
     private final Connection connection;
+    private final BrandService brandService = ApplicationContext.getBrandService();
 
     public ShareholderRepository(Connection connection) {
         this.connection = connection;
@@ -68,5 +69,32 @@ public class ShareholderRepository {
         }
         else
             return null;
+    }
+    public int numOfArray(int id) throws SQLException {
+        String shareholderBrands = "SELECT * FROM shareholder_brand WHERE shareholder_id_fk = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(shareholderBrands);
+        preparedStatement.setInt(1,id);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        int i = 0;
+        while (resultSet.next()) {
+            i++;
+        }
+        return i;
+    }
+    public Brands[] shareholderBrands(int id) throws SQLException {
+
+        Brands [] brands = new Brands[numOfArray(id)];
+
+        String shareholderBrands = "SELECT * FROM shareholder_brand WHERE shareholder_id_fk = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(shareholderBrands);
+        preparedStatement.setInt(1,id);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        int i = 0;
+        while (resultSet.next()){
+            int fk = resultSet.getInt("brand_id_fk");
+            brands[i] = brandService.loadBrandById(fk);
+            i++;
+        }
+        return brands;
     }
 }

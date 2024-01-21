@@ -1,6 +1,6 @@
 package repository;
 
-import feilds.Brands;
+import models.Brands;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

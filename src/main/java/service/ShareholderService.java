@@ -4,6 +4,7 @@ import models.Brands;
 import models.Shareholder;
 import repository.ShareholderRepository;
 import utility.ApplicationContext;
+import utility.Validation;
 
 import java.sql.SQLException;
 import java.util.Scanner;
@@ -16,13 +17,35 @@ public class ShareholderService {
     public ShareholderService(ShareholderRepository shareholderRepository) {
         this.shareholderRepository = shareholderRepository;
     }
+    private String getPhoneNumber() {
+        String PhoneNumber;
+        while (true) {
+            System.out.println("Please enter your PhoneNumber:");
+            PhoneNumber = sc.nextLine();
+            if(Validation.isValidPhoneNumber(PhoneNumber))
+                break;
+            else
+                System.out.println("plz enter a valid PhoneNumber");
+        }
+        return PhoneNumber;
+    }
+    private String getNationalCode() {
+        String nationalCode;
+        while (true) {
+            System.out.println("Please enter your nation code:");
+            nationalCode = sc.nextLine();
+            if(Validation.isValidNationalCode(nationalCode))
+                break;
+            else
+                System.out.println("plz enter a valid nation code");
+        }
+        return nationalCode;
+    }
     public void saveShareHolder() throws SQLException {
         System.out.println("plz enter the shareholder name");
         String shareholderName = sc.nextLine();
-        System.out.println("plz enter the shareholder phone");
-        String shareholderPhone = sc.nextLine();
-        System.out.println("plz enter the shareholder national code");
-        String shareholderCode = sc.nextLine();
+        String shareholderPhone = getPhoneNumber();
+        String shareholderCode = getNationalCode();
         Brands [] brands = brandService.makeAnArrayOfBrands();
         Shareholder shareholder = new Shareholder(shareholderName,shareholderPhone,shareholderCode,brands);
         int res = shareholderRepository.save(shareholder);

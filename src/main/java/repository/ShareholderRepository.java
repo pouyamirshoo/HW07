@@ -26,5 +26,19 @@ public class ShareholderRepository {
         int result = preparedStatement.executeUpdate();
         return result;
     }
+    public Shareholder takeOBJid(Shareholder shareholder) throws SQLException {
+
+        String sql = "SELECT * FROM shareholder WHERE shareholder_name = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1, shareholder.getShareHolderName());
+        ResultSet resultSet = preparedStatement.executeQuery();
+        if (resultSet.next()) {
+            int fk = resultSet.getInt("shareholder_id");
+            Shareholder shareholder1 = new Shareholder(fk);
+            return shareholder1;
+        }
+        else
+            return null;
+    }
 
 }

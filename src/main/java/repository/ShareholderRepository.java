@@ -52,4 +52,21 @@ public class ShareholderRepository {
             int result = preparedStatement.executeUpdate();
         }
     }
+    public Shareholder loud(String name) throws SQLException {
+
+        String loud = "SELECT * FROM shareholder WHERE shareholder_name = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(loud);
+        preparedStatement.setString(1,name);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        if (resultSet.next()) {
+            int fk = resultSet.getInt("shareholder_id");
+            String name1 = resultSet.getString("shareholder_name");
+            String phone = resultSet.getString("shareholder_phone_number");
+            String code = resultSet.getString("shareholder_national_code");
+            Shareholder shareholder = new Shareholder(fk,name1,phone,code);
+            return shareholder;
+        }
+        else
+            return null;
+    }
 }

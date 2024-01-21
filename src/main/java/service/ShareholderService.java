@@ -16,5 +16,19 @@ public class ShareholderService {
     public ShareholderService(ShareholderRepository shareholderRepository) {
         this.shareholderRepository = shareholderRepository;
     }
-
+    public void saveShareHolder() throws SQLException {
+        System.out.println("plz enter the shareholder name");
+        String shareholderName = sc.nextLine();
+        System.out.println("plz enter the shareholder phone");
+        String shareholderPhone = sc.nextLine();
+        System.out.println("plz enter the shareholder national code");
+        String shareholderCode = sc.nextLine();
+        Brands [] brands = brandService.makeAnArrayOfBrands();
+        Shareholder shareholder = new Shareholder(shareholderName,shareholderPhone,shareholderCode,brands);
+        int res = shareholderRepository.save(shareholder);
+        if (res == 1){
+           Shareholder shareholder1 = shareholderRepository.takeOBJid(shareholder);
+           shareholderRepository.saveInMidTable(shareholder1,shareholder);
+        }
+    }
 }

@@ -1,7 +1,7 @@
 package service;
 
 
-import feilds.Brands;
+import models.Brands;
 import repository.BrandRepository;
 import utility.Validation;
 
@@ -113,5 +113,17 @@ public class BrandService {
             System.out.println("your brand description has changed");
         else
             System.out.println("try again");
+    }
+    public Brands[] makeAnArrayOfBrands() throws SQLException {
+        System.out.println("plz enter the number of brands for shareholder");
+        int num = sc.nextInt();
+        sc.nextLine();
+        Brands [] brands = new Brands[num];
+        for (int i = 0; i < num; i++) {
+            System.out.println("plz enter the "+ i+1 +"th brand name");
+            String temp = sc.nextLine();
+            brands[i] = brandRepository.load(temp);
+        }
+        return brands;
     }
 }

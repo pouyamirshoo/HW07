@@ -40,5 +40,16 @@ public class ShareholderRepository {
         else
             return null;
     }
-
+    public void saveInMidTable(Shareholder shareholder,Shareholder shareholder1) throws SQLException {
+        int fk = shareholder.getShareHolderId();
+        Brands[] brands = shareholder1.getBrands();
+        for (int i = 0; i < brands.length; i++) {
+            int fk2 = brands[i].getBrandId();
+            String SQL = "INSERT INTO shareholder_brand(shareholder_id_fk,brand_id_fk) VALUES(?,?)";
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+            preparedStatement.setInt(1, fk);
+            preparedStatement.setInt(2, fk2);
+            int result = preparedStatement.executeUpdate();
+        }
+    }
 }

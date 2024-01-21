@@ -7,6 +7,7 @@ import utility.ApplicationContext;
 import utility.Validation;
 
 import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class ShareholderService {
@@ -62,5 +63,12 @@ public class ShareholderService {
            System.out.println("wrong name or there is no shareholder");
        else
         System.out.println(shareholder.toString());
+    }
+    public void brandsOfOneShareHolder() throws SQLException {
+        System.out.println("plz enter the id of shareholder");
+        int id = sc.nextInt();
+        sc.nextLine();
+        Brands [] brands = shareholderRepository.shareholderBrands(id);
+        System.out.println(Arrays.toString(brands));
     }
 }

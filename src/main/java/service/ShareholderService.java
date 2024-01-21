@@ -54,4 +54,13 @@ public class ShareholderService {
            shareholderRepository.saveInMidTable(shareholder1,shareholder);
         }
     }
+    public void loudOneShareHolder() throws SQLException {
+        System.out.println("plz enter the shareholder name");
+        String shareholderName = sc.nextLine();
+       Shareholder shareholder = shareholderRepository.loud(shareholderName);
+       if(shareholder == null)
+           System.out.println("wrong name or there is no shareholder");
+       else
+        System.out.println(shareholder.toString());
+    }
 }

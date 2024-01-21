@@ -159,11 +159,13 @@ public class Menu {
     public void shareholder() throws SQLException {
         System.out.println("press 1 to make a shareholder");
         System.out.println("press 2 to loud a shareholder");
+        System.out.println("press 3 to see all brands holds by one shareholder");
         int shNum = sc.nextInt();
         sc.nextLine();
         switch (shNum){
             case 1 -> saveShareHolder();
             case 2 -> loudOneShareHolder();
+            case 3 -> brandsOfOneShareHolder();
         }
 
     }
@@ -172,5 +174,8 @@ public class Menu {
     }
     public void loudOneShareHolder() throws SQLException {
         shareholderService.loudOneShareHolder();
+    }
+    public void brandsOfOneShareHolder() throws SQLException {
+        shareholderService.brandsOfOneShareHolder();
     }
 }

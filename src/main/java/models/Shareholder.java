@@ -10,6 +10,13 @@ public class Shareholder {
     public Shareholder() {
     }
 
+    public Shareholder(int shareHolderId, String shareHolderName, String shareHolderPhoneNumber, String shareHolderNationalCode) {
+        this.shareHolderId = shareHolderId;
+        this.shareHolderName = shareHolderName;
+        this.shareHolderPhoneNumber = shareHolderPhoneNumber;
+        this.shareHolderNationalCode = shareHolderNationalCode;
+    }
+
     public Shareholder(String shareHolderName, String shareHolderPhoneNumber, String shareHolderNationalCode, Brands[] brands) {
         this.shareHolderName = shareHolderName;
         this.shareHolderPhoneNumber = shareHolderPhoneNumber;

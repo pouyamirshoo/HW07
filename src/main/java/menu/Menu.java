@@ -166,6 +166,7 @@ public class Menu {
         System.out.println("press 2 to loud a shareholder");
         System.out.println("press 3 to see all brands holds by one shareholder");
         System.out.println("press 4 to delete one shareholder");
+        System.out.println("press 5 to edit one shareholder");
         int shNum = sc.nextInt();
         sc.nextLine();
         switch (shNum){
@@ -173,6 +174,7 @@ public class Menu {
             case 2 -> loudOneShareHolder();
             case 3 -> brandsOfOneShareHolder();
             case 4 -> deleteOneShaeHolder();
+            case 5 -> editShareHolder();
         }
 
     }
@@ -187,5 +189,20 @@ public class Menu {
     }
     public void deleteOneShaeHolder() throws SQLException {
         shareholderService.deleteOneShareHolder();
+    }
+    public void editShareHolder() throws SQLException {
+        System.out.println("press 1 to edit name");
+        System.out.println("press 2 to edit phone number");
+        System.out.println("press 3 to edit national code");
+        System.out.println("press 4 to edit brand");
+        int edit = sc.nextInt();
+        sc.nextLine();
+        switch (edit){
+            case 1 -> shareholderService.editShareHolderName();
+            case 2 -> shareholderService.editShareHolderPhone();
+            case 3 -> shareholderService.editShareHolderCode();
+            case 4 -> shareholderService.editShareHolderBrand();
+
+        }
     }
 }

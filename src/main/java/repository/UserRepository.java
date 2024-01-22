@@ -23,8 +23,7 @@ public class UserRepository {
         preparedStatement.setString(2, user.getUserName());
         preparedStatement.setString(3, user.getUserEmail());
         preparedStatement.setString(4, user.getUserPassword());
-        int result = preparedStatement.executeUpdate();
-        return result;
+        return preparedStatement.executeUpdate();
     }
 
     public Users load(String username) throws SQLException {
@@ -39,8 +38,7 @@ public class UserRepository {
             String fetchUsername = resultSet.getString("user_username");
             String email = resultSet.getString("email");
             String password = resultSet.getString("user_password");
-            Users user = new Users(id,firstName,fetchUsername,email,password);
-            return user;
+            return new Users(id,firstName,fetchUsername,email,password);
         }
         else
             return null;

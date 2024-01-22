@@ -18,8 +18,7 @@ public class CategoryRepository {
         PreparedStatement preparedStatement = connection.prepareStatement(saveCategory);
         preparedStatement.setString(1, category.getCategoryName());
         preparedStatement.setString(2, category.getCategoryDescription());
-        int result = preparedStatement.executeUpdate();
-        return result;
+        return preparedStatement.executeUpdate();
     }
     public Category load(String categoryName) throws SQLException {
 
@@ -31,8 +30,7 @@ public class CategoryRepository {
             int id = resultSet.getInt("category_id");
             String categoryName1 = resultSet.getString("category_name");
             String categoryDescription = resultSet.getString("category_description");
-            Category category = new Category(id,categoryName,categoryDescription);
-            return category;
+            return new Category(id,categoryName,categoryDescription);
         } else
             return null;
     }
@@ -46,8 +44,7 @@ public class CategoryRepository {
             int idC = resultSet.getInt("category_id");
             String categoryName = resultSet.getString("category_name");
             String categoryDescription = resultSet.getString("category_description");
-            Category category = new Category(idC,categoryName,categoryDescription);
-            return category;
+            return new Category(idC,categoryName,categoryDescription);
         } else
             return null;
     }
@@ -92,8 +89,7 @@ public class CategoryRepository {
             int Cid = resultSet.getInt("category_id");
             String categoryName = resultSet.getString("category_name");
             String categoryDescription = resultSet.getString("category_description");
-            Category category = new Category(Cid,categoryName,categoryDescription);
-            return category;
+            return new Category(Cid,categoryName,categoryDescription);
         }
         else
             return null;
@@ -103,8 +99,7 @@ public class CategoryRepository {
         String deleteCategory = "DELETE FROM category WHERE category_id = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(deleteCategory);
         preparedStatement.setInt(1,id);
-        int result = preparedStatement.executeUpdate();
-        return result;
+        return preparedStatement.executeUpdate();
     }
     public int editCategoryName(int id,String newCategoryName) throws SQLException {
 
@@ -112,8 +107,7 @@ public class CategoryRepository {
         PreparedStatement preparedStatement = connection.prepareStatement(editCategoryName);
         preparedStatement.setString(1,newCategoryName);
         preparedStatement.setInt(2,id);
-        int result = preparedStatement.executeUpdate();
-        return result;
+        return preparedStatement.executeUpdate();
     }
     public int editCategoryDescription(int id,String newCategoryDescription) throws SQLException {
 
@@ -121,7 +115,6 @@ public class CategoryRepository {
         PreparedStatement preparedStatement = connection.prepareStatement(editCategoryDescription);
         preparedStatement.setString(1,newCategoryDescription);
         preparedStatement.setInt(2,id);
-        int result = preparedStatement.executeUpdate();
-        return result;
+        return preparedStatement.executeUpdate();
     }
 }

@@ -86,6 +86,8 @@ public class ShareholderService {
         System.out.println(shareholder.toString());
         System.out.println("******+++*****+++******++****");
         Brands [] brands = shareholderRepository.shareholderBrands(id);
+        int count = brands.length;
+        System.out.println("this shareholder has " + count + " brands");
         for (int i = 0; i < brands.length; i++) {
             System.out.println(brands[i].toString());
         }

@@ -84,8 +84,11 @@ public class ShareholderService {
         Shareholder shareholder = loudOneShareHolderById1(id);
         System.out.println("the shareholder");
         System.out.println(shareholder.toString());
+        System.out.println("******+++*****+++******++****");
         Brands [] brands = shareholderRepository.shareholderBrands(id);
-        System.out.println(Arrays.toString(brands));
+        for (int i = 0; i < brands.length; i++) {
+            System.out.println(brands[i].toString());
+        }
     }
     public void deleteOneShareHolder() throws SQLException {
         System.out.println("all shareholders");
@@ -136,7 +139,7 @@ public class ShareholderService {
         String name = getPhoneNumber();
         int edit = shareholderRepository.editShareHolderName(id,name);
         if (edit != 0)
-            System.out.println("name changed");
+            System.out.println("phone changed");
         else
             System.out.println("wrong id");
     }
@@ -154,7 +157,41 @@ public class ShareholderService {
         String name = getNationalCode();
         int edit = shareholderRepository.editShareHolderName(id,name);
         if (edit != 0)
-            System.out.println("name changed");
+            System.out.println("code changed");
+        else
+            System.out.println("wrong id");
+    }
+    public void editShareHolderBrand() throws SQLException {
+        System.out.println("all shareholders");
+        Shareholder [] shareholders = shareholderRepository.showAllShareHolders();
+        for (int i = 0; i < shareholders.length ; i++) {
+            System.out.println(shareholders[i].toString());
+        }
+        System.out.println("*****************");
+        System.out.println("plz enter the id of shareholder you want edit brand");
+        int id = sc.nextInt();
+        sc.nextLine();
+        Shareholder shareholder = loudOneShareHolderById1(id);
+        System.out.println("the shareholder");
+        System.out.println(shareholder.toString());
+        System.out.println("******+++*****+++******++****");
+        Brands [] brands = shareholderRepository.shareholderBrands(id);
+        for (int i = 0; i < brands.length; i++) {
+            System.out.println(brands[i].toString());
+        }
+        System.out.println("-------------------------------");
+        System.out.println("plz enter the id of wrong brand");
+        int del = sc.nextInt();
+        sc.nextLine();
+
+        System.out.println("plz enter the new brand id for the shareholder");
+        int fk = sc.nextInt();
+        sc.nextLine();
+
+        Brands brand = brandService.loadBrandById(fk);
+        int edit = shareholderRepository.editShareHolderBrands(id,del,fk);
+        if (edit != 0)
+            System.out.println("brand changed");
         else
             System.out.println("wrong id");
     }

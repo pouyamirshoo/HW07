@@ -94,6 +94,16 @@ public class ShareholderRepository {
         }
         return i;
     }
+    public int numOfArraySh(int id) throws SQLException {
+        String numOfArraySh = "SELECT * FROM shareholder";
+        PreparedStatement preparedStatement = connection.prepareStatement(numOfArraySh);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        int i = 0;
+        while (resultSet.next()) {
+            i++;
+        }
+        return i;
+    }
     public Brands[] shareholderBrands(int id) throws SQLException {
 
         Brands [] brands = new Brands[numOfArray(id)];
@@ -117,4 +127,5 @@ public class ShareholderRepository {
         preparedStatement.setInt(1,id);
         return preparedStatement.executeUpdate();
     }
+
 }

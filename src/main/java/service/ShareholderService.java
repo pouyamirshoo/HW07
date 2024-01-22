@@ -20,26 +20,20 @@ public class ShareholderService {
     }
     private String getPhoneNumber() {
         String PhoneNumber;
-        while (true) {
+        do {
             System.out.println("Please enter your PhoneNumber:");
             PhoneNumber = sc.nextLine();
-            if(Validation.isValidPhoneNumber(PhoneNumber))
-                break;
-            else
-                System.out.println("plz enter a valid PhoneNumber");
-        }
+            System.out.println("plz enter a valid PhoneNumber");
+        } while (!Validation.isValidPhoneNumber(PhoneNumber));
         return PhoneNumber;
     }
     private String getNationalCode() {
         String nationalCode;
-        while (true) {
+        do {
             System.out.println("Please enter your nation code:");
             nationalCode = sc.nextLine();
-            if(Validation.isValidNationalCode(nationalCode))
-                break;
-            else
-                System.out.println("plz enter a valid nation code");
-        }
+            System.out.println("plz enter a valid nation code");
+        } while (!Validation.isValidNationalCode(nationalCode));
         return nationalCode;
     }
     public void saveShareHolder() throws SQLException {
@@ -74,11 +68,14 @@ public class ShareholderService {
        else
         System.out.println(shareholder.toString());
     }
+    public Shareholder loudOneShareHolderById1(int id) throws SQLException {
+        return shareholderRepository.loudById(id);
+    }
     public void brandsOfOneShareHolder() throws SQLException {
         System.out.println("plz enter the id of shareholder");
         int id = sc.nextInt();
         sc.nextLine();
-        Shareholder shareholder = shareholderRepository.loudById(id);
+        Shareholder shareholder = loudOneShareHolderById1(id);
         System.out.println("the shareholder");
         System.out.println(shareholder.toString());
         Brands [] brands = shareholderRepository.shareholderBrands(id);

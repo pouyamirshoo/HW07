@@ -94,7 +94,7 @@ public class ShareholderRepository {
         }
         return i;
     }
-    public int numOfArraySh(int id) throws SQLException {
+    public int numOfArraySh() throws SQLException {
         String numOfArraySh = "SELECT * FROM shareholder";
         PreparedStatement preparedStatement = connection.prepareStatement(numOfArraySh);
         ResultSet resultSet = preparedStatement.executeQuery();
@@ -120,6 +120,25 @@ public class ShareholderRepository {
         }
         return brands;
     }
+    public Shareholder [] showAllShareHolders() throws SQLException {
+        Shareholder [] shareholders = new Shareholder[numOfArraySh()];
+
+        String numOfArraySh = "SELECT * FROM shareholder";
+        PreparedStatement preparedStatement = connection.prepareStatement(numOfArraySh);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        int i = 0;
+        while (resultSet.next()) {
+            int id = resultSet.getInt("shareholder_id");
+            String name = resultSet.getString("shareholder_name");
+            String phone = resultSet.getString("shareholder_phone_number");
+            String code = resultSet.getString("shareholder_national_code");
+            Shareholder shareholder = new Shareholder(id,name,phone,code);
+            shareholders [i] = shareholder;
+            i++;
+        }
+        return shareholders;
+
+    }
     public int deleteShareholder(int id) throws SQLException {
 
         String deleteShareholder = "DELETE FROM shareholder WHERE shareholder_id = ?";
@@ -127,5 +146,4 @@ public class ShareholderRepository {
         preparedStatement.setInt(1,id);
         return preparedStatement.executeUpdate();
     }
-
 }

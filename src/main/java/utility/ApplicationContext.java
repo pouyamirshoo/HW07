@@ -19,6 +19,7 @@ public class ApplicationContext {
     private static final ShareholderRepository SHAREHOLDER_REPOSITORY;
     private static final ShareholderService SHAREHOLDER_SERVICE;
 
+    private static final Shareholder_brandsRepository SHAREHOLDER_BRANDS_REPOSITORY;
 
     static {
         CONNECTION = JdbcConnection.getConnection();
@@ -32,6 +33,7 @@ public class ApplicationContext {
         PRODUCT_SERVICE = new ProductService(PRODUCT_REPOSITORY);
         SHAREHOLDER_REPOSITORY = new ShareholderRepository(CONNECTION);
         SHAREHOLDER_SERVICE = new ShareholderService(SHAREHOLDER_REPOSITORY);
+        SHAREHOLDER_BRANDS_REPOSITORY = new Shareholder_brandsRepository(CONNECTION);
 
     }
     public static UserService getUserService (){

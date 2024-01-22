@@ -2,29 +2,33 @@ package service;
 
 
 import models.Brands;
+import models.Shareholder;
 import repository.BrandRepository;
+import utility.ApplicationContext;
 import utility.Validation;
 
 import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class BrandService {
     private final Scanner sc = new Scanner(System.in);
     private final BrandRepository brandRepository;
+    private final ShareholderService shareholderService = ApplicationContext.getShareholderService();
 
     public BrandService(BrandRepository brandRepository) {
         this.brandRepository = brandRepository;
     }
     private String getWebsiteFromUser(){
     String website;
-        while (true) {
-        System.out.println("Please enter your website:");
-        website = sc.nextLine();
-        if(Validation.isValidWebsite(website))
-            break;
-        else
+    while (true){
+            System.out.println("Please enter your website:");
+            website = sc.nextLine();
+            if (Validation.isValidWebsite(website))
+                break;
+            else
             System.out.println("plz enter a valid website");
-    }
+        }
         return website;
 }
     public void saveBrand() throws SQLException {
@@ -55,8 +59,7 @@ public class BrandService {
         }
     }
     public Brands loadBrandById(int id) throws SQLException {
-        Brands brands = brandRepository.loadById(id);
-        return brands;
+        return brandRepository.loadById(id);
     }
     public void loadAllBrands() throws SQLException {
         Brands[]brands = brandRepository.loadAll();
@@ -65,8 +68,7 @@ public class BrandService {
         }
     }
     public Brands getBrand(int id) throws SQLException {
-        Brands brand  = brandRepository.takeBrand(id);
-        return brand;
+        return brandRepository.takeBrand(id);
     }
     public void deleteOneBrand() throws SQLException {
         System.out.println("plz enter the brand id you want to delete");
@@ -125,5 +127,15 @@ public class BrandService {
             brands[i] = brandRepository.load(temp);
         }
         return brands;
+    }
+    public void shareholdersOfOneBrand() throws SQLException {
+        System.out.println("plz enter the id of brand");
+        int id = sc.nextInt();
+        sc.nextLine();
+        Brands brand = loadBrandById(id);
+        System.out.println("the brand");
+        System.out.println(brand.toString());
+        Shareholder [] shareholders = brandRepository.brandsShareHolder(id);
+        System.out.println(Arrays.toString(shareholders));
     }
 }

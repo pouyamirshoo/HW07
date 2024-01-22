@@ -48,6 +48,7 @@ public class Menu {
         System.out.println("press 2 for check brand");
         System.out.println("press 3 for delete one brand");
         System.out.println("press 4 for edit brand");
+        System.out.println("press 5 for show all shareholders of one brand");
         int brandCh = sc.nextInt();
         sc.nextLine();
         switch (brandCh){
@@ -55,6 +56,7 @@ public class Menu {
             case 2 -> brandService.loadBrand();
             case 3 -> delBrand();
             case 4 -> editBrand();
+            case 5 -> shareholdersOfOneBrand();
         }
     }
     public void delBrand() throws SQLException {
@@ -75,6 +77,9 @@ public class Menu {
             case 2 -> brandService.editBrandWebsite();
             case 3 -> brandService.editBrandDescription();
         }
+    }
+    public void shareholdersOfOneBrand() throws SQLException {
+        brandService.shareholdersOfOneBrand();
     }
     public void category() throws SQLException {
         System.out.println("press 1 for make category");
@@ -160,12 +165,14 @@ public class Menu {
         System.out.println("press 1 to make a shareholder");
         System.out.println("press 2 to loud a shareholder");
         System.out.println("press 3 to see all brands holds by one shareholder");
+        System.out.println("press 4 to delete one shareholder");
         int shNum = sc.nextInt();
         sc.nextLine();
         switch (shNum){
             case 1 -> saveShareHolder();
             case 2 -> loudOneShareHolder();
             case 3 -> brandsOfOneShareHolder();
+            case 4 -> deleteOneShaeHolder();
         }
 
     }
@@ -177,5 +184,8 @@ public class Menu {
     }
     public void brandsOfOneShareHolder() throws SQLException {
         shareholderService.brandsOfOneShareHolder();
+    }
+    public void deleteOneShaeHolder() throws SQLException {
+        shareholderService.deleteOneShareHolder();
     }
 }

@@ -177,4 +177,13 @@ public class ShareholderRepository {
         preparedStatement.setInt(2,id);
         return preparedStatement.executeUpdate();
     }
+    public int editShareHolderBrands(int id,int del,int fk) throws SQLException {
+
+        String editShareHolderBrands ="UPDATE shareholder_brand SET brand_id_fk = ? WHERE shareholder_id_fk = ? AND brand_id_fk = ? ";
+        PreparedStatement preparedStatement = connection.prepareStatement(editShareHolderBrands);
+        preparedStatement.setInt(1,fk);
+        preparedStatement.setInt(2,id);
+        preparedStatement.setInt(3,del);
+        return preparedStatement.executeUpdate();
+    }
 }

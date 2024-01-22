@@ -103,6 +103,41 @@ public class ShareholderService {
                 System.out.println("shareholder deleted");
        else
            System.out.println("wrong id");
-
+    }
+    public void editShareHolderName() throws SQLException {
+        System.out.println("all shareholders");
+        Shareholder [] shareholders = shareholderRepository.showAllShareHolders();
+        for (int i = 0; i < shareholders.length ; i++) {
+            System.out.println(shareholders[i].toString());
+        }
+        System.out.println("*****************");
+        System.out.println("plz enter the id of shareholder you want edit name");
+        int id = sc.nextInt();
+        sc.nextLine();
+        System.out.println("plz enter the new name for the shareholder");
+        String name = sc.nextLine();
+        int edit = shareholderRepository.editShareHolderName(id,name);
+        if (edit != 0)
+            System.out.println("name changed");
+        else
+            System.out.println("wrong id");
+    }
+    public void editShareHolderPhone() throws SQLException {
+        System.out.println("all shareholders");
+        Shareholder [] shareholders = shareholderRepository.showAllShareHolders();
+        for (int i = 0; i < shareholders.length ; i++) {
+            System.out.println(shareholders[i].toString());
+        }
+        System.out.println("*****************");
+        System.out.println("plz enter the id of shareholder you want edit phone number");
+        int id = sc.nextInt();
+        sc.nextLine();
+        System.out.println("plz enter the new phone number for the shareholder");
+        String name = getPhoneNumber();
+        int edit = shareholderRepository.editShareHolderName(id,name);
+        if (edit != 0)
+            System.out.println("name changed");
+        else
+            System.out.println("wrong id");
     }
 }

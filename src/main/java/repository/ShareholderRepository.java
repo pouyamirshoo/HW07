@@ -153,4 +153,12 @@ public class ShareholderRepository {
         preparedStatement.setInt(1,id);
         return preparedStatement.executeUpdate();
     }
+    public int editShareHolderName(int id,String newShareholderName) throws SQLException {
+
+        String editShareHolderName = "UPDATE shareholder SET shareholder_name = ? WHERE shareholder_id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(editShareHolderName);
+        preparedStatement.setString(1,newShareholderName);
+        preparedStatement.setInt(2,id);
+        return preparedStatement.executeUpdate();
+    }
 }

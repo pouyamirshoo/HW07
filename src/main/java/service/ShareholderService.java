@@ -81,4 +81,22 @@ public class ShareholderService {
         Brands [] brands = shareholderRepository.shareholderBrands(id);
         System.out.println(Arrays.toString(brands));
     }
+    public void deleteOneShareHolder() throws SQLException {
+        System.out.println("all shareholders");
+        System.out.println(Arrays.toString(shareholderRepository.showAllShareHolders()));
+        System.out.println("*****************");
+        System.out.println("plz enter the id of shareholder you want delete");
+        int id = sc.nextInt();
+        sc.nextLine();
+        int del2 = 0;
+        int del = shareholderRepository.deleteShareholder(id);
+        if (del == 1) {
+            del2 = shareholderRepository.deleteShareholderFromInnerTable(id);
+            if (del2 == 1)
+                System.out.println("shareholder deleted");
+        }
+        else
+            System.out.println("enter valid id");
+
+    }
 }

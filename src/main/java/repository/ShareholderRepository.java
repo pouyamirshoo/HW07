@@ -169,4 +169,12 @@ public class ShareholderRepository {
         preparedStatement.setInt(2,id);
         return preparedStatement.executeUpdate();
     }
+    public int editShareHolderCode(int id,String newShareholderCode) throws SQLException {
+
+        String editShareHolderCode = "UPDATE shareholder SET shareholder_national_code = ? WHERE shareholder_id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(editShareHolderCode);
+        preparedStatement.setString(1,newShareholderCode);
+        preparedStatement.setInt(2,id);
+        return preparedStatement.executeUpdate();
+    }
 }

@@ -24,8 +24,7 @@ public class ShareholderRepository {
         preparedStatement.setString(1,shareholder.getShareHolderName());
         preparedStatement.setString(2,shareholder.getShareHolderPhoneNumber());
         preparedStatement.setString(3,shareholder.getShareHolderNationalCode());
-        int result = preparedStatement.executeUpdate();
-        return result;
+        return preparedStatement.executeUpdate();
     }
     public Shareholder takeOBJid(Shareholder shareholder) throws SQLException {
 
@@ -35,8 +34,7 @@ public class ShareholderRepository {
         ResultSet resultSet = preparedStatement.executeQuery();
         if (resultSet.next()) {
             int fk = resultSet.getInt("shareholder_id");
-            Shareholder shareholder1 = new Shareholder(fk);
-            return shareholder1;
+            return new Shareholder(fk);
         }
         else
             return null;
@@ -64,8 +62,7 @@ public class ShareholderRepository {
             String name1 = resultSet.getString("shareholder_name");
             String phone = resultSet.getString("shareholder_phone_number");
             String code = resultSet.getString("shareholder_national_code");
-            Shareholder shareholder = new Shareholder(fk,name1,phone,code);
-            return shareholder;
+            return new Shareholder(fk,name1,phone,code);
         }
         else
             return null;
@@ -81,8 +78,7 @@ public class ShareholderRepository {
             String name1 = resultSet.getString("shareholder_name");
             String phone = resultSet.getString("shareholder_phone_number");
             String code = resultSet.getString("shareholder_national_code");
-            Shareholder shareholder = new Shareholder(fk,name1,phone,code);
-            return shareholder;
+            return new Shareholder(fk,name1,phone,code);
         }
         else
             return null;

@@ -33,8 +33,7 @@ public class ProductRepository {
         preparedStatement.setDate(2,sqlDate);
         preparedStatement.setInt(3,product.categoryId());
         preparedStatement.setInt(4,product.brandId());
-        int result = preparedStatement.executeUpdate();
-        return result;
+        return preparedStatement.executeUpdate();
     }
     public Products load(String productName) throws SQLException {
 
@@ -51,8 +50,7 @@ public class ProductRepository {
             int brand_id_fk = resultSet.getInt("brand_id_fk");
             Brands brand = brandService.loadBrandById(brand_id_fk);
 
-            Products product = new Products(id,productName1,product_creat_date,category,brand);
-            return product;
+            return new Products(id,productName1,product_creat_date,category,brand);
         }
         else
             return null;
@@ -98,8 +96,7 @@ public class ProductRepository {
         String deleteProduct = "DELETE FROM product WHERE product_id = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(deleteProduct);
         preparedStatement.setInt(1,id);
-        int result = preparedStatement.executeUpdate();
-        return result;
+        return preparedStatement.executeUpdate();
     }
     public int editProductName(int id,String newProductName) throws SQLException {
 
@@ -107,8 +104,7 @@ public class ProductRepository {
         PreparedStatement preparedStatement = connection.prepareStatement(editProductName);
         preparedStatement.setString(1,newProductName);
         preparedStatement.setInt(2,id);
-        int result = preparedStatement.executeUpdate();
-        return result;
+        return preparedStatement.executeUpdate();
     }
     public int editProductCreatDate(int id,String newProductCreatDate) throws SQLException {
 
@@ -119,8 +115,7 @@ public class ProductRepository {
         PreparedStatement preparedStatement = connection.prepareStatement(editProductCreatDate);
         preparedStatement.setDate(1,sqlDate);
         preparedStatement.setInt(2,id);
-        int result = preparedStatement.executeUpdate();
-        return result;
+        return preparedStatement.executeUpdate();
     }
     public int editProductCategoryId(int id,int newProductCategoryId) throws SQLException {
 
@@ -128,8 +123,7 @@ public class ProductRepository {
         PreparedStatement preparedStatement = connection.prepareStatement(editProductCategoryId);
         preparedStatement.setInt(1,newProductCategoryId);
         preparedStatement.setInt(2,id);
-        int result = preparedStatement.executeUpdate();
-        return result;
+        return preparedStatement.executeUpdate();
     }
     public int editProductBrandId(int id,int newProductBrandId) throws SQLException {
 
@@ -137,7 +131,6 @@ public class ProductRepository {
         PreparedStatement preparedStatement = connection.prepareStatement(editProductBrandId);
         preparedStatement.setInt(1,newProductBrandId);
         preparedStatement.setInt(2,id);
-        int result = preparedStatement.executeUpdate();
-        return result;
+        return preparedStatement.executeUpdate();
     }
 }

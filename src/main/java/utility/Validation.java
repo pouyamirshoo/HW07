@@ -1,12 +1,10 @@
 package utility;
 
-import java.lang.reflect.Array;
 import java.net.URL;
-import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-;
+
 
 public class Validation {
     private static final Pattern USER_EMAIL;

@@ -139,4 +139,15 @@ public class BrandRepository {
         int result = preparedStatement.executeUpdate();
         return result;
     }
+    public int numOfArray(int id) throws SQLException {
+        String numOfArray = "SELECT * FROM shareholder_brand WHERE brand_id_fk = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(numOfArray);
+        preparedStatement.setInt(1,id);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        int i = 0;
+        while (resultSet.next()) {
+            i++;
+        }
+        return i;
+    }
 }

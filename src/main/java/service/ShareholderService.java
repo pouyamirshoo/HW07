@@ -20,20 +20,26 @@ public class ShareholderService {
     }
     private String getPhoneNumber() {
         String PhoneNumber;
-        do {
+        while (true) {
             System.out.println("Please enter your PhoneNumber:");
             PhoneNumber = sc.nextLine();
+            if(Validation.isValidPhoneNumber(PhoneNumber))
+            break;
+            else
             System.out.println("plz enter a valid PhoneNumber");
-        } while (!Validation.isValidPhoneNumber(PhoneNumber));
+        }
         return PhoneNumber;
     }
     private String getNationalCode() {
         String nationalCode;
-        do {
+        while (true) {
             System.out.println("Please enter your nation code:");
             nationalCode = sc.nextLine();
+            if (Validation.isValidNationalCode(nationalCode))
+                break;
+            else
             System.out.println("plz enter a valid nation code");
-        } while (!Validation.isValidNationalCode(nationalCode));
+        }
         return nationalCode;
     }
     public void saveShareHolder() throws SQLException {
@@ -91,8 +97,12 @@ public class ShareholderService {
         System.out.println("plz enter the id of shareholder you want delete");
         int id = sc.nextInt();
         sc.nextLine();
-        shareholderRepository.deleteShareholderFromInnerTable(id);
-             shareholderRepository.deleteShareholder(id);
+       int a = shareholderRepository.deleteShareholderFromInnerTable(id);
+       int b =  shareholderRepository.deleteShareholder(id);
+       if(a != 0 && b != 0)
                 System.out.println("shareholder deleted");
+       else
+           System.out.println("wrong id");
+
     }
 }

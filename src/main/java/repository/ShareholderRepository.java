@@ -146,4 +146,11 @@ public class ShareholderRepository {
         preparedStatement.setInt(1,id);
         return preparedStatement.executeUpdate();
     }
+    public int deleteShareholderFromInnerTable(int id) throws SQLException {
+
+        String deleteShareholderFromInnerTable = "DELETE FROM shareholder_brand WHERE shareholder_id_fk = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(deleteShareholderFromInnerTable);
+        preparedStatement.setInt(1,id);
+        return preparedStatement.executeUpdate();
+    }
 }

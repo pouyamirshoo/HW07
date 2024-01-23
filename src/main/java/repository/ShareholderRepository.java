@@ -186,4 +186,31 @@ public class ShareholderRepository {
         preparedStatement.setInt(3,del);
         return preparedStatement.executeUpdate();
     }
+    public int numOfArrayB(int id) throws SQLException {
+        String numOfArrayB = "SELECT * FROM shareholder_brand WHERE brand_id_fk = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(numOfArrayB);
+        preparedStatement.setInt(1,id);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        int i = 0;
+        while (resultSet.next()) {
+            i++;
+        }
+        return i;
+    }
+    public Shareholder [] brandsShareHolder(int id) throws SQLException {
+
+        Shareholder [] shareholders = new Shareholder[numOfArrayB(id)];
+
+        String brandsShareHolder = "SELECT * FROM shareholder_brand WHERE brand_id_fk = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(brandsShareHolder);
+        preparedStatement.setInt(1,id);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        int i = 0;
+        while (resultSet.next()){
+            int fk = resultSet.getInt("shareholder_id_fk");
+            shareholders [i] = loudById(fk);
+            i++;
+        }
+        return shareholders;
+    }
 }

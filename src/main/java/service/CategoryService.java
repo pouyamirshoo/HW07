@@ -58,8 +58,9 @@ public class CategoryService {
         System.out.println("plz enter the category id you want to delete");
         int id = sc.nextInt();
         sc.nextLine();
+        int fk = categoryRepository.deleteCategoryFk(id);
         int del = categoryRepository.deleteCategory(id);
-        if(del == 1)
+        if(fk != 0 && del == 1)
             System.out.println("the category has been deleted");
         else
             System.out.println("enter the valid id");

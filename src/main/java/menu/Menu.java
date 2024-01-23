@@ -13,6 +13,7 @@ public class Menu {
     private final CategoryService categoryService = ApplicationContext.getCategoryService();
     private final ProductService productService = ApplicationContext.getProductService();
     private final ShareholderService shareholderService = ApplicationContext.getShareholderService();
+    private final Shareholder_brandsService shareholderBrandsService = ApplicationContext.getShareholderBrandsService();
 
     public void publicMenu() throws SQLException {
         System.out.println("***** WELCOME *****");

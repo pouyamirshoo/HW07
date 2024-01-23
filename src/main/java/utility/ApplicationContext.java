@@ -18,6 +18,7 @@ public class ApplicationContext {
     private static final ProductService PRODUCT_SERVICE;
     private static final ShareholderRepository SHAREHOLDER_REPOSITORY;
     private static final ShareholderService SHAREHOLDER_SERVICE;
+    private static final Shareholder_brandsService SHAREHOLDER_BRANDS_SERVICE;
 
     private static final Shareholder_brandsRepository SHAREHOLDER_BRANDS_REPOSITORY;
 
@@ -34,6 +35,7 @@ public class ApplicationContext {
         SHAREHOLDER_REPOSITORY = new ShareholderRepository(CONNECTION);
         SHAREHOLDER_SERVICE = new ShareholderService(SHAREHOLDER_REPOSITORY);
         SHAREHOLDER_BRANDS_REPOSITORY = new Shareholder_brandsRepository(CONNECTION);
+        SHAREHOLDER_BRANDS_SERVICE = new Shareholder_brandsService(SHAREHOLDER_BRANDS_REPOSITORY);
 
     }
     public static UserService getUserService (){
@@ -51,6 +53,8 @@ public class ApplicationContext {
     public static ShareholderService getShareholderService (){
         return SHAREHOLDER_SERVICE;
     }
-
+    public static Shareholder_brandsService getShareholderBrandsService(){
+        return SHAREHOLDER_BRANDS_SERVICE;
+    }
 
 }

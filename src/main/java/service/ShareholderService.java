@@ -7,7 +7,6 @@ import utility.ApplicationContext;
 import utility.Validation;
 
 import java.sql.SQLException;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class ShareholderService {
@@ -65,16 +64,6 @@ public class ShareholderService {
        else
         System.out.println(shareholder.toString());
     }
-    public void loudOneShareHolderById() throws SQLException {
-        System.out.println("plz enter the shareholder id");
-        int id = sc.nextInt();
-        sc.nextLine();
-       Shareholder shareholder = shareholderRepository.loudById(id);
-       if(shareholder == null)
-           System.out.println("wrong id or there is no shareholder");
-       else
-        System.out.println(shareholder.toString());
-    }
     public Shareholder loudOneShareHolderById1(int id) throws SQLException {
         return shareholderRepository.loudById(id);
     }
@@ -107,13 +96,19 @@ public class ShareholderService {
             System.out.println(shareholders[i].toString());
         }
     }
-    public void deleteOneShareHolder() throws SQLException {
+    public void showAllShareholders() throws SQLException {
         System.out.println("all shareholders");
         Shareholder [] shareholders = shareholderRepository.showAllShareHolders();
         for (int i = 0; i < shareholders.length ; i++) {
             System.out.println(shareholders[i].toString());
         }
         System.out.println("*****************");
+
+    }
+    public void deleteOneShareHolder() throws SQLException {
+
+        showAllShareholders();
+
         System.out.println("plz enter the id of shareholder you want delete");
         int id = sc.nextInt();
         sc.nextLine();
@@ -125,12 +120,9 @@ public class ShareholderService {
            System.out.println("wrong id");
     }
     public void editShareHolderName() throws SQLException {
-        System.out.println("all shareholders");
-        Shareholder [] shareholders = shareholderRepository.showAllShareHolders();
-        for (int i = 0; i < shareholders.length ; i++) {
-            System.out.println(shareholders[i].toString());
-        }
-        System.out.println("*****************");
+
+        showAllShareholders();
+
         System.out.println("plz enter the id of shareholder you want edit name");
         int id = sc.nextInt();
         sc.nextLine();
@@ -143,11 +135,9 @@ public class ShareholderService {
             System.out.println("wrong id");
     }
     public void editShareHolderPhone() throws SQLException {
-        System.out.println("all shareholders");
-        Shareholder [] shareholders = shareholderRepository.showAllShareHolders();
-        for (int i = 0; i < shareholders.length ; i++) {
-            System.out.println(shareholders[i].toString());
-        }
+
+        showAllShareholders();
+
         System.out.println("*****************");
         System.out.println("plz enter the id of shareholder you want edit phone number");
         int id = sc.nextInt();
@@ -161,11 +151,9 @@ public class ShareholderService {
             System.out.println("wrong id");
     }
     public void editShareHolderCode() throws SQLException {
-        System.out.println("all shareholders");
-        Shareholder [] shareholders = shareholderRepository.showAllShareHolders();
-        for (int i = 0; i < shareholders.length ; i++) {
-            System.out.println(shareholders[i].toString());
-        }
+
+        showAllShareholders();
+
         System.out.println("*****************");
         System.out.println("plz enter the id of shareholder you want edit national code");
         int id = sc.nextInt();
@@ -179,11 +167,9 @@ public class ShareholderService {
             System.out.println("wrong id");
     }
     public void editShareHolderBrand() throws SQLException {
-        System.out.println("all shareholders");
-        Shareholder [] shareholders = shareholderRepository.showAllShareHolders();
-        for (int i = 0; i < shareholders.length ; i++) {
-            System.out.println(shareholders[i].toString());
-        }
+
+        showAllShareholders();
+
         System.out.println("*****************");
         System.out.println("plz enter the id of shareholder you want edit brand");
         int id = sc.nextInt();

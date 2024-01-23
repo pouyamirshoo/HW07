@@ -86,6 +86,9 @@ public class ShareholderService {
         }
     }
     public void shareholdersOfOneBrand() throws SQLException {
+
+        brandService.loadAllBrands();
+
         System.out.println("plz enter the id of brand");
         int idB = sc.nextInt();
         sc.nextLine();
@@ -94,7 +97,7 @@ public class ShareholderService {
         System.out.println("******+++*****+++******++****");
         Shareholder [] shareholders = shareholderRepository.brandsShareHolder(idB);
         int count = shareholders.length;
-        System.out.println("this shareholder has " + count + " brands");
+        System.out.println("this brand has " + count + " shareholder");
         for (int i = 0; i < shareholders.length; i++) {
             System.out.println(shareholders[i].toString());
         }

@@ -101,6 +101,13 @@ public class CategoryRepository {
         preparedStatement.setInt(1,id);
         return preparedStatement.executeUpdate();
     }
+    public int deleteCategoryFk(int id) throws SQLException {
+
+        String deleteCategory = "DELETE FROM product WHERE category_id_fk = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(deleteCategory);
+        preparedStatement.setInt(1,id);
+        return preparedStatement.executeUpdate();
+    }
     public int editCategoryName(int id,String newCategoryName) throws SQLException {
 
         String editCategoryName = "UPDATE category SET category_name = ? WHERE category_id = ?";

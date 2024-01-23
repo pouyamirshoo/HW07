@@ -92,6 +92,20 @@ public class ShareholderService {
             System.out.println(brands[i].toString());
         }
     }
+    public void shareholdersOfOneBrand() throws SQLException {
+        System.out.println("plz enter the id of brand");
+        int idB = sc.nextInt();
+        sc.nextLine();
+        Brands brand = brandService.loadBrandById(idB);
+        System.out.println(brand.toString());
+        System.out.println("******+++*****+++******++****");
+        Shareholder [] shareholders = shareholderRepository.brandsShareHolder(idB);
+        int count = shareholders.length;
+        System.out.println("this shareholder has " + count + " brands");
+        for (int i = 0; i < shareholders.length; i++) {
+            System.out.println(shareholders[i].toString());
+        }
+    }
     public void deleteOneShareHolder() throws SQLException {
         System.out.println("all shareholders");
         Shareholder [] shareholders = shareholderRepository.showAllShareHolders();

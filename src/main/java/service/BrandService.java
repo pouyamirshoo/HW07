@@ -74,8 +74,10 @@ public class BrandService {
         System.out.println("plz enter the brand id you want to delete");
         int id = sc.nextInt();
         sc.nextLine();
-        int del = brandRepository.deleteBrand(id);
-        if(del == 1)
+        int del = brandRepository.deleteBrandInnerTable(id);
+        int del2 = brandRepository.deleteBrandInnerTable2(id);
+        int del3 = brandRepository.deleteBrand(id);
+        if(del != 0 && del2 != 0 && del3 != 0)
             System.out.println("the brand has been deleted");
         else
             System.out.println("enter the valid id");

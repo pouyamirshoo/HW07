@@ -47,6 +47,7 @@ public class ShareholderService {
         String shareholderName = sc.nextLine();
         String shareholderPhone = getPhoneNumber();
         String shareholderCode = getNationalCode();
+        brandService.loadAllBrands();
         Brands [] brands = brandService.makeAnArrayOfBrands();
         Shareholder shareholder = new Shareholder(shareholderName,shareholderPhone,shareholderCode,brands);
         int res = shareholderRepository.save(shareholder);

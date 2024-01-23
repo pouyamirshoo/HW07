@@ -68,6 +68,9 @@ public class ShareholderService {
         return shareholderRepository.loudById(id);
     }
     public void brandsOfOneShareHolder() throws SQLException {
+
+        showAllShareholders();
+
         System.out.println("plz enter the id of shareholder");
         int id = sc.nextInt();
         sc.nextLine();

@@ -80,7 +80,7 @@ public class Menu {
         }
     }
     public void shareholdersOfOneBrand() throws SQLException {
-        brandService.shareholdersOfOneBrand();
+        shareholderService.shareholdersOfOneBrand();
     }
     public void category() throws SQLException {
         System.out.println("press 1 for make category");

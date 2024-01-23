@@ -153,7 +153,7 @@ public class ShareholderService {
         sc.nextLine();
         System.out.println("plz enter the new phone number for the shareholder");
         String name = getPhoneNumber();
-        int edit = shareholderRepository.editShareHolderName(id,name);
+        int edit = shareholderRepository.editShareHolderPhone(id,name);
         if (edit != 0)
             System.out.println("phone changed");
         else
@@ -171,7 +171,7 @@ public class ShareholderService {
         sc.nextLine();
         System.out.println("plz enter the new national code for the shareholder");
         String name = getNationalCode();
-        int edit = shareholderRepository.editShareHolderName(id,name);
+        int edit = shareholderRepository.editShareHolderCode(id,name);
         if (edit != 0)
             System.out.println("code changed");
         else

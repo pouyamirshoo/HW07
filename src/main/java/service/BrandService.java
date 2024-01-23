@@ -130,14 +130,4 @@ public class BrandService {
         }
         return brands;
     }
-    public void shareholdersOfOneBrand() throws SQLException {
-        System.out.println("plz enter the id of brand");
-        int id = sc.nextInt();
-        sc.nextLine();
-        Brands brand = loadBrandById(id);
-        System.out.println("the brand");
-        System.out.println(brand.toString());
-        Shareholder [] shareholders = brandRepository.brandsShareHolder(id);
-        System.out.println(Arrays.toString(shareholders));
-    }
 }

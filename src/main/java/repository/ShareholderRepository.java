@@ -221,4 +221,12 @@ public class ShareholderRepository {
         preparedStatement.setInt(2, Bid);
         return preparedStatement.executeUpdate();
     }
+    public int deleteOneBrand(int id,int Bid) throws SQLException {
+
+        String deleteOneBrand = "DELETE FROM shareholder_brand WHERE brand_id_fk = ? AND shareholder_id_fk = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(deleteOneBrand);
+        preparedStatement.setInt(1, id);
+        preparedStatement.setInt(2, Bid);
+        return preparedStatement.executeUpdate();
+    }
 }

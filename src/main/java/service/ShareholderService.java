@@ -206,4 +206,20 @@ public class ShareholderService {
         else
             System.out.println("wrong id");
     }
+    public void addOneBrand() throws SQLException {
+        System.out.println("plz enter the id for shareholder");
+        showAllShareholders();
+        int id = sc.nextInt();
+        sc.nextLine();
+
+        brandService.loadAllBrands();
+        System.out.println("plz enter the i=brand id you want to add");
+        int Bid = sc.nextInt();
+        sc.nextLine();
+        int add = shareholderRepository.addOneBrand(id,Bid);
+        if(add != 0)
+            System.out.println("brand added");
+        else
+            System.out.println("failed ty again");
+    }
 }

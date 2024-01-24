@@ -1,5 +1,6 @@
 package menu;
 
+import models.Users;
 import service.*;
 import utility.ApplicationContext;
 
@@ -15,35 +16,59 @@ public class Menu {
     private final ShareholderService shareholderService = ApplicationContext.getShareholderService();
     private final Shareholder_brandsService shareholderBrandsService = ApplicationContext.getShareholderBrandsService();
 
+    public void signInFirst() throws SQLException {
+
+        System.out.println("plz sign in first");
+        int save = userService.saveUser();
+        if(save != 0) {
+            System.out.println("thank you for your sign in");
+            logIn();
+        }
+        else {
+            System.out.println("plz try again");
+            signInFirst();
+        }
+    }
+    public void logIn() throws SQLException {
+        System.out.println("plz log in now");
+        int loud = userService.loadUser();
+        if(loud != 0)
+            publicMenu();
+        else {
+            System.out.println("try again");
+            userService.loadUser();
+        }
+    }
+    public void startMenu() throws SQLException {
+        System.out.println("welcome");
+        System.out.println("press 1 for sign in");
+        System.out.println("press 2 for log in");
+        int start = sc.nextInt();
+        sc.nextLine();
+        switch (start){
+            case 1 -> signInFirst();
+            case 2 -> logIn();
+        }
+
+    }
     public void publicMenu() throws SQLException {
-        System.out.println("***** WELCOME *****");
-        System.out.println("1-SIGN IN");
-        System.out.println("2-LOG IN");
-        System.out.println("3-BRAND");
-        System.out.println("4-CATEGORY");
-        System.out.println("5-PRODUCT");
-        System.out.println("6-SHAREHOLDER");
-        System.out.println("Choose your number:");
+
+        System.out.println("1-BRAND");
+        System.out.println("2-CATEGORY");
+        System.out.println("3-PRODUCT");
+        System.out.println("4-SHAREHOLDER");
 
         int number = sc.nextInt();
         sc.nextLine();
 
         switch (number) {
-            case 1 -> signIn();
-            case 2 -> logIn();
-            case 3 -> brand();
-            case 4 -> category();
-            case 5 -> product();
-            case 6 -> shareholder();
+            case 1 -> brand();
+            case 2 -> category();
+            case 3 -> product();
+            case 4 -> shareholder();
         }
     }
 
-    public void signIn() throws SQLException {
-        userService.saveUser();
-    }
-    public void logIn() throws SQLException {
-        userService.loadUser();
-    }
     public void brand() throws SQLException {
         System.out.println("press 1 for make brand");
         System.out.println("press 2 for check brand");

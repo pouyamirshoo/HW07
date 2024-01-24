@@ -212,13 +212,41 @@ public class ShareholderService {
         int id = sc.nextInt();
         sc.nextLine();
 
-        brandService.loadAllBrands();
+        Brands [] brands = shareholderRepository.shareholderBrands(id);
+        int count = brands.length;
+        System.out.println("this shareholder has " + count + " brands");
+        for (int i = 0; i < brands.length; i++) {
+            System.out.println(brands[i].toString());
+        }
+
         System.out.println("plz enter the i=brand id you want to add");
         int Bid = sc.nextInt();
         sc.nextLine();
         int add = shareholderRepository.addOneBrand(id,Bid);
         if(add != 0)
             System.out.println("brand added");
+        else
+            System.out.println("failed ty again");
+    }
+    public void deleteOneBrand() throws SQLException {
+        System.out.println("plz enter the id for shareholder");
+        showAllShareholders();
+        int id = sc.nextInt();
+        sc.nextLine();
+
+        Brands [] brands = shareholderRepository.shareholderBrands(id);
+        int count = brands.length;
+        System.out.println("this shareholder has " + count + " brands");
+        for (int i = 0; i < brands.length; i++) {
+            System.out.println(brands[i].toString());
+        }
+
+        System.out.println("plz enter the brand id you want to delete");
+        int Bid = sc.nextInt();
+        sc.nextLine();
+        int add = shareholderRepository.deleteOneBrand(Bid,id);
+        if(add != 0)
+            System.out.println("brand deleted");
         else
             System.out.println("failed ty again");
     }

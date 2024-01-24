@@ -9,14 +9,22 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         Menu menu = new Menu();
 
-        menu.publicMenu();
+        menu.startMenu();
 
-        System.out.println("do you want to continue?(y,n)");
-        String continueMain = sc.nextLine();
-        continueMain.toLowerCase();
-        if(continueMain.charAt(0) == 'y'){
-            System.out.println();
-            main(args);
+        boolean flag = true;
+
+        while (flag) {
+            System.out.println("do you want to continue?(y,n)");
+            String continueMain = sc.nextLine();
+            continueMain.toLowerCase();
+            if (continueMain.charAt(0) == 'y') {
+                System.out.println();
+                menu.publicMenu();
+            }
+            else {
+                flag = false;
+                break;
+            }
         }
     }
 }

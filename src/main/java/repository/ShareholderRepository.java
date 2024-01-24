@@ -213,4 +213,12 @@ public class ShareholderRepository {
         }
         return shareholders;
     }
+    public int addOneBrand(int id,int Bid) throws SQLException {
+
+        String addOneBrand = "INSERT INTO shareholder_brand(shareholder_id_fk,brand_id_fk) VALUES(?,?)";
+        PreparedStatement preparedStatement = connection.prepareStatement(addOneBrand);
+        preparedStatement.setInt(1, id);
+        preparedStatement.setInt(2, Bid);
+        return preparedStatement.executeUpdate();
+    }
 }

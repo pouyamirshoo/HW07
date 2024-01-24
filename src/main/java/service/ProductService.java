@@ -92,6 +92,7 @@ public class ProductService {
         System.out.println("plz enter the id of the product you want to edit category id");
         int id = sc.nextInt();
         sc.nextLine();
+        categoryService.loadAllCategories();
         System.out.println("plz enter the new category id");
         int newCategoryId = sc.nextInt();
         sc.nextLine();

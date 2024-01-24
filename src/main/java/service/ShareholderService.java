@@ -193,6 +193,8 @@ public class ShareholderService {
         int del = sc.nextInt();
         sc.nextLine();
 
+        brandService.loadAllBrands();
+
         System.out.println("plz enter the new brand id for the shareholder");
         int fk = sc.nextInt();
         sc.nextLine();

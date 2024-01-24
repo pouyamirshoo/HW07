@@ -227,8 +227,18 @@ public class Menu {
             case 1 -> shareholderService.editShareHolderName();
             case 2 -> shareholderService.editShareHolderPhone();
             case 3 -> shareholderService.editShareHolderCode();
-            case 4 -> shareholderService.editShareHolderBrand();
+            case 4 -> editShareHolderBrand();
 
+        }
+    }
+    public void editShareHolderBrand() throws SQLException {
+        System.out.println("press 1 to replace brands");
+        System.out.println("press 2 to add one brand");
+        int ch = sc.nextInt();
+        sc.nextLine();
+        switch (ch){
+            case 1 -> shareholderService.editShareHolderBrand();
+            case 2 -> shareholderService.addOneBrand();
         }
     }
 }

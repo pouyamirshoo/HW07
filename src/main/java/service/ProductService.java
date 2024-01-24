@@ -105,6 +105,7 @@ public class ProductService {
         System.out.println("plz enter the id of the product you want to edit brand id");
         int id = sc.nextInt();
         sc.nextLine();
+        brandService.loadAllBrands();
         System.out.println("plz enter the new brand id");
         int newBrandId = sc.nextInt();
         sc.nextLine();

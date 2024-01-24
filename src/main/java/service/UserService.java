@@ -40,7 +40,8 @@ public class UserService {
         }
         return email;
     }
-    public void saveUser() throws SQLException {
+    public int saveUser() throws SQLException {
+        int save = 0;
         System.out.println("plz enter your full name");
         String fullName = sc.nextLine();
         System.out.println("plz enter your username");
@@ -50,16 +51,17 @@ public class UserService {
         Users user = new Users(fullName,username,email,password);
        int signIn =  userRepository.save(user);
         if(signIn == 1){
-            System.out.println("thank you for sign in");
+            save = 1;
         }
-        else
-            System.out.println("you already sign in");
+        return save;
     }
-    public void loadUser() throws SQLException {
+    public int loadUser() throws SQLException {
         System.out.println("plz enter your user name");
         String username = sc.nextLine();
         System.out.println("plz enter your password");
         String password = sc.nextLine();
+
+        int loud = 0;
 
         Users user = userRepository.load(username);
         if(user == null)
@@ -67,8 +69,10 @@ public class UserService {
         else if (!user.getUserPassword().equals(password))
             System.out.println("wrong password");
         else {
+            loud = 1;
             System.out.println("welcome");
             System.out.println(user.toString());
         }
+        return loud;
     }
 }
